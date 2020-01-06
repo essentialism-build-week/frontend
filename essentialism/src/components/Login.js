@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
     // Set initial state for credentials and fetch check
     const [credentials, setCredentials] = useState({
-        email: "",
+        username: "",
         password: ""
     })
     const [isFetching, setIsFetching] = useState(false);
@@ -31,7 +31,7 @@ const Login = () => {
                 console.log(response.data);
                 if (response.data.token) {
                     localStorage.setItem("token", response.data.token);
-                    history.push('/main');
+                    history.push('/welcome');
                 } else {
                     setError(response.data.msg)
                 }
@@ -45,12 +45,12 @@ const Login = () => {
         <div>
             <form onSubmit={login}>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={credentials.email}
-                    onChange={handleChanges}
-                    required
+                  type="text"
+                  name="username"
+                  placeholder="User name"
+                  value={credentials.username}
+                  onChange={handleChanges}
+                  required
                 />
                 <input
                     type="password"

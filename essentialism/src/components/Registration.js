@@ -4,8 +4,10 @@ import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
   const [credentials, setCredentials] = useState({
+    username: "",
     email: "",
-    password: ""
+    password: "",
+    phone: ""
   });
   const [isFetching, setIsFetching] = useState(false);
 
@@ -23,7 +25,7 @@ const Registration = () => {
       event.preventDefault();
       setIsFetching(true);
       axiosWithAuth()
-          .post('/registration', credentials)
+          .post('/register', credentials)
           .then(response => {
               console.log(response.data);
               response.data.saved===true ? history.push('/login') : alert("This account has already been created.");
@@ -34,6 +36,14 @@ const Registration = () => {
   return (
     <div>
         <form name="registration-form" onSubmit={register}>
+            <input
+                type="text"
+                name="username"
+                placeholder="User name"
+                value={credentials.username}
+                onChange={handleChanges}
+                required
+            />
             <input
                 type="email"
                 name="email"
@@ -50,9 +60,19 @@ const Registration = () => {
                 onChange={handleChanges}
                 required
             />
+            <input
+                type="number"
+                name="phone"
+                placeholder="Phone number"
+                value={credentials.phone}
+                onChange={handleChanges}
+                required
+            />
             <button>Sign up</button>
             {isFetching && 'Signing up...'}
         </form>
     </div>
-  )
-}
+  );
+};
+
+export default Registration;
