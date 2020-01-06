@@ -35,22 +35,6 @@ const Registration = () => {
     <div>
         <form name="registration-form" onSubmit={register}>
             <input
-                type="firstName"
-                name="firstName"
-                placeholder="First Name"
-                value={credentials.firstName}
-                onChange={handleChanges}
-                required
-            />
-            <input
-                type="lastName"
-                name="lastName"
-                placeholder="Last Name"
-                value={credentials.lastName}
-                onChange={handleChanges}
-                required
-            />
-            <input
                 type="email"
                 name="email"
                 placeholder="Email"
