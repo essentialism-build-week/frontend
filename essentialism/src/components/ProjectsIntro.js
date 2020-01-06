@@ -1,5 +1,8 @@
 import React from "react";
 
+// This component follows the user's explanation of why their top 3 values are important to them.
+// The goal of this component is to get the user to think about how they're spending their time now in relation to what they consider to be important.
+
 export default function ProjectsIntro() {
   return (
     <section className="projects-intro-page">
@@ -15,7 +18,7 @@ export default function ProjectsIntro() {
         Think about what you spend your time on at work and outside of work, and
         what you would like to be involved in.
       </p>
-      <input type="submit" value="What's next?" />
+      <input type="submit" value="Let's add some projects!" />
     </section>
   );
 }

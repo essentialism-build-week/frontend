@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import WelcomePage from "./components/WelcomePage";
+import OnboardingIntro from "./components/OnboardingIntro";
 import RegistrationForm from "./components/RegistrationForm";
 import LoginForm from "./components/LoginForm";
 import ValueSelection from "./components/ValueSelection";
@@ -17,8 +17,8 @@ function App() {
         <Header />
       </main>
       <Switch>
-        <Route path="/welcome">
-          <WelcomePage />
+        <Route path="/onboarding-intro">
+          <OnboardingIntro />
         </Route>
         <Route path="/registration">
           <RegistrationForm />

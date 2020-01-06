@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function WelcomePage() {
+// This component represents the first screen a new user sees after registering.
+// This is simply to welcome the user to Tōdai and give them a brief introduction to the app and its purpose.
+
+export default function OnboardingIntro() {
   return (
-    <section className="welcome-page">
+    <section className="onboarding-intro">
       <p>Welcome!</p>
       <p>The way of Tōdai involves focusing on what matters most.</p>
       <p>
@@ -14,7 +17,7 @@ export default function WelcomePage() {
         consider to be important.
       </p>
       <p>So, the first step is identifying your values - are you ready?</p>
-      <input type="submit" value="I'm ready" />
+      <input type="submit" value="I'm ready!" />
     </section>
   );
 }
