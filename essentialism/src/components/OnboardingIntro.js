@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function OnboardingIntro() {
   return (
-    <section className="onboarding-intro">
+    <section className="intro">
       <p>Welcome!</p>
       <p>The way of Tōdai involves focusing on what matters most.</p>
       <p>
