@@ -3,8 +3,11 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
-  const [credentials, setCredentials] = useState({});
-  cons [isFetching, setIsFetching] = useState(false);
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: ""
+  });
+  const [isFetching, setIsFetching] = useState(false);
 
   // Sets credentials to it's state
   const handleChanges = event => {
