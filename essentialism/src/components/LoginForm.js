@@ -12,9 +12,7 @@ const LoginForm = props => {
       <input placeholder="email" />
       <label>Password</label>
       <input placeholder="password" />
-      <div className="proceed-button">
-        <p>Submit</p>
-      </div>
+      <input type="submit" value="Submit" />
     </form>
   );
 };

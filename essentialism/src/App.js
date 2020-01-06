@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import ValueSelection from "./components/ValueSelection";
 import ValueExplanation from "./components/ValueExplanation";
 import ProjectsIntro from "./components/ProjectsIntro";
+import Home from "./components/HomeScreen";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 
@@ -16,6 +17,9 @@ function App() {
         <Header />
       </main>
       <Switch>
+        <Route path="/welcome">
+          <WelcomePage />
+        </Route>
         <Route path="/registration">
           <RegistrationForm />
         </Route>
@@ -29,10 +33,10 @@ function App() {
           <ValueExplanation />
         </Route>
         <Route path="/projects-intro">
-          <ValueExplanation />
+          <ProjectsIntro />
         </Route>
         <Route path="/">
-          <WelcomePage />
+          <Home />
         </Route>
       </Switch>
     </Router>

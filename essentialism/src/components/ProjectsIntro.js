@@ -1,20 +1,21 @@
 import React from "react";
 
 export default function ProjectsIntro() {
-    return (
-      <section className="welcome-page">
-        <p>Welcome!</p>
-        <p>The way of Tōdai involves focusing on what matters most.</p>
-        <p>
-          It's not about being more productive or shedding all worldly
-          possessions.
-        </p>
-        <p>
-          It's about making sure you're living a life in line with what you
-          consider to be important.
-        </p>
-        <p>So, the first step is identifying your values - are you ready?</p>
-        <input type="submit" value="What's next?" />
-      </section>
-    );
-  }
+  return (
+    <section className="projects-intro-page">
+      <p>
+        Now that you've chosen your top values and explained why they're
+        important to you, it's time to look at how you're spending your time.
+      </p>
+      <p>
+        On the next page you will list the projects and activities you're
+        involved in.
+      </p>
+      <p>
+        Think about what you spend your time on at work and outside of work, and
+        what you would like to be involved in.
+      </p>
+      <input type="submit" value="What's next?" />
+    </section>
+  );
+}
