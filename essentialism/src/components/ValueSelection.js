@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // This component allows the user to select her values in life.
 // These values are meant to be ideas or concept the user can resonate with upon reading them, i.e. community, music, career, health, family, art, travel, etc...
@@ -7,13 +8,15 @@ import React from "react";
 
 export default function ValueSelection() {
   return (
-    <>
+    <section>
       <h2>Choose your values</h2>
       <div>
         <p>This is where the values will be</p>
       </div>
       <p>Once you have picked at least 3, you can proceed</p>
-      <input type="submit" value="I've chosen my values" />
-    </>
+      <Link to="/value-explanation">
+        <input type="submit" value="I've chosen my values" />
+      </Link>
+    </section>
   );
 }
