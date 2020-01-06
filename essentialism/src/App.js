@@ -1,29 +1,45 @@
-import React from 'react';
-import './App.css';
-import styled from 'styled-components';
-import PrivateRoute from './components/PrivateRoute';
-import Login from './components/Login';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-const AppStyles = styled.div`
-
-
-`;
+import React from "react";
+import Header from "./components/Header";
+import OnboardingIntro from "./components/OnboardingIntro";
+import RegistrationForm from "./components/RegistrationForm";
+import LoginForm from "./components/LoginForm";
+import ValueSelection from "./components/ValueSelection";
+import ValueExplanation from "./components/ValueExplanation";
+import ProjectsIntro from "./components/ProjectsIntro";
+import Home from "./components/HomeScreen";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <AppStyles>
     <Router>
-    <div className="App">
+      <main>
+        <Header />
+      </main>
       <Switch>
-        <PrivateRoute path="/welcome" component={'#'} />
-        <Route path="/login" component={Login} />
-        <Route component={Login} />
+        <Route path="/onboarding-intro">
+          <OnboardingIntro />
+        </Route>
+        <Route path="/registration">
+          <RegistrationForm />
+        </Route>
+        <Route path="/login">
+          <LoginForm />
+        </Route>
+        <Route path="/value-selection">
+          <ValueSelection />
+        </Route>
+        <Route path="/value-explanation">
+          <ValueExplanation />
+        </Route>
+        <Route path="/projects-intro">
+          <ProjectsIntro />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
-    </div>
-  </Router>
-    </AppStyles>
-    
+    </Router>
   );
 }
 
