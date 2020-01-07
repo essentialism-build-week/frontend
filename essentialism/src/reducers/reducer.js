@@ -1,4 +1,4 @@
-export {
+import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE
@@ -21,7 +21,7 @@ const reducer = (state = initialStateLogin, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                setCredentials: action.payload,
+                credentials: action.payload,
                 isFetching: false,
                 error: '',
             };

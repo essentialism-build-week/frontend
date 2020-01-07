@@ -18,7 +18,7 @@ const Login = (props) => {
           type="text"
           name="username"
           placeholder="User name"
-          value={props.credentials}
+          value={props.credentials.username}
           onChange={handleChanges}
           required
         />
@@ -26,7 +26,7 @@ const Login = (props) => {
           type="password"
           name="password"
           placeholder="Password"
-          value={props.credentials}
+          value={props.credentials.password}
           onChange={handleChanges}
           required
         />
