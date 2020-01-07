@@ -25,7 +25,7 @@ const SelectTop3Values = () => {
 
 const mapStateToProps = state => {
   return {
-    topThreeValues: state.topThreeValues
+    topThreeSelected: state.topThreeSelected
   };
   };
   
