@@ -10,6 +10,8 @@ import SelectTop3Values from "./components/SelectTop3Values";
 import ValuesExplanation from "./components/ValuesExplanation";
 import ProjectsIntro from "./components/ProjectsIntro";
 import ProjectsList from "./components/ProjectsList";
+import ProjectValueCompareIntro from "./components/ProjectValueCompareIntro";
+import AssignValuesToProjects from "./components/AssignValuesToProjects";
 import OnboardingComplete from "./components/OnboardingComplete";
 import Home from "./components/HomeScreen";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -47,17 +49,23 @@ function App() {
           <ProjectsIntro />
         </Route>
         <Route path="/projects-list">
-        <ProjectsList />
-      </Route>
+          <ProjectsList />
+        </Route>
+        <Route path="/project-value-compare-intro">
+          <ProjectValueCompareIntro />
+        </Route>
+        <Route path="/assign-values">
+          <AssignValuesToProjects />
+        </Route>
         <Route path="/onboarding-complete">
           <OnboardingComplete />
         </Route>
-        <Route path="/">
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/">
           <LandingPage />
         </Route>
-        <Route path="/home">
-        <Home />
-      </Route>
       </Switch>
     </Router>
   );

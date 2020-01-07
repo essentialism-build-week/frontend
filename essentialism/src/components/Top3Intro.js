@@ -16,7 +16,7 @@ export default function Top3Intro() {
         like to improve.
       </p>
       <p>
-        Remember, you can always tackle more later after you have a handle on
+        Remember, you can always tackle others later after you have a handle on
         what's most important to you now.
       </p>
       <p>It's time to focus!</p>

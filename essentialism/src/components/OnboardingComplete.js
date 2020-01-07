@@ -13,7 +13,7 @@ export default function OnboardingComplete() {
         You have taken the first steps toward enriching your life with
         intention, focus, and greater fulfillment.
       </p>
-      <Link to="/">
+      <Link to="/home">
         <input type="submit" value="Sounds great!" />
       </Link>
     </section>
