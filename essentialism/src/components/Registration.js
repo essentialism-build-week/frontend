@@ -28,7 +28,7 @@ const Registration = () => {
           .post('/register', credentials)
           .then(response => {
               console.log(response.data);
-              response.data.saved===true ? history.push('/login') : alert("This account has already been created.");
+              response.data.saved === true ? history.push('/login') : alert("This account has already been created.");
           })
           .catch(error => console.log(error));
   };
