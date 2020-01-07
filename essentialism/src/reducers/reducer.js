@@ -75,7 +75,8 @@ const reducer = (state = initialValueExplanation, action) {
 // PROJECT LIST
 
 const initialProjectList = {
-    projectList: []
+    projectList: [],
+    isFetching: false
 };
 
 const reducer = (state = initialProjectList, action) {

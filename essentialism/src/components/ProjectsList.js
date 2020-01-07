@@ -41,7 +41,8 @@ const ProjectList = () => {
 
 const mapStateToProps = state => {
   return {
-    projectList: state.projectList
+    projectList: state.projectList,
+    isFetching: state.isFetching
   };
   };
   
