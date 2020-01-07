@@ -1,4 +1,5 @@
 import React from "react";
+import LandingPage from './components/LandingPage';
 import Header from "./components/Header";
 import OnboardingIntro from "./components/OnboardingIntro";
 import Registration from "./components/Registration";
@@ -23,7 +24,7 @@ function App() {
         <Route path="/onboarding-intro">
           <OnboardingIntro />
         </Route>
-        <Route path="/register">
+        <Route path="/registration">
           <Registration />
         </Route>
         <Route path="/login">
@@ -44,11 +45,11 @@ function App() {
         <Route path="/projects-intro">
           <ProjectsIntro />
         </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
         <Route path="/onboarding-complete">
           <OnboardingComplete />
-        </Route>
-        <Route exact path="/">
-          <Home />
         </Route>
       </Switch>
     </Router>
