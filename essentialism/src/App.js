@@ -1,4 +1,5 @@
 import React from "react";
+import PrivateRoute from './components/PrivateRoute';
 import LandingPage from './components/LandingPage';
 import Header from "./components/Header";
 import OnboardingIntro from "./components/OnboardingIntro";
@@ -11,7 +12,7 @@ import ValuesExplanation from "./components/ValuesExplanation";
 import ProjectsIntro from "./components/ProjectsIntro";
 import OnboardingComplete from "./components/OnboardingComplete";
 import Home from "./components/HomeScreen";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Header />
       </main>
       <Switch>
+      <PrivateRoute path="/home" component={Home} />
         <Route path="/onboarding-intro">
           <OnboardingIntro />
         </Route>
