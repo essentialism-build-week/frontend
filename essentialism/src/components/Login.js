@@ -25,6 +25,7 @@ const Login = () => {
     const login = event => {
         event.preventDefault();
         setIsFetching(true);
+        console.log(credentials);
         axiosWithAuth()
             .post('/login', credentials)
             .then(response => {

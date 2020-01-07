@@ -5,6 +5,7 @@ export const axiosWithAuth = () => {
 
     return axios.create({
         headers: {
+            baseURL: "https://todai-backend.herokuapp.com/api/auth",
             authorization: token
         }
     });
