@@ -27,7 +27,7 @@ const Login = () => {
         setIsFetching(true);
         console.log(credentials);
         axiosWithAuth()
-            .post('/login', credentials)
+            .post('/auth/login', credentials)
             .then(response => {
                 console.log(response.data);
                 if (response.data.token) {
