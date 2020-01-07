@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
+import Home from './HomeScreen';
 
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
         password: ""
     })
     const [isFetching, setIsFetching] = useState(false);
+
     const [error, setError] = useState("")
 
     // Sets credentials to it's state
@@ -25,13 +27,15 @@ const Login = () => {
     const login = event => {
         event.preventDefault();
         setIsFetching(true);
+
         axiosWithAuth()
             .post('/login', credentials)
             .then(response => {
+            
                 console.log(response.data);
                 if (response.data.token) {
                     localStorage.setItem("token", response.data.token);
-                    history.push('/welcome');
+                    this.props.history.push('/home');
                 } else {
                     setError(response.data.msg)
                 }
@@ -61,7 +65,7 @@ const Login = () => {
                     required
                 />
                 <button>Log in</button>
-                {isFetching && 'Logging in...'}
+                {isFetching && 'Logging In...'}
             </form>
             <p>{error ? error : null}</p>
             
