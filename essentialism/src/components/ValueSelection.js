@@ -14,7 +14,7 @@ const values = [
   { id: "3", url: "../img/creativity.jpg" }
 ];
 
-function ValueSelection() {
+const ValueSelection = () => {
   return (
     <section>
       <h2>Choose your values</h2>
