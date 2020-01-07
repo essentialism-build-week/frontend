@@ -1,4 +1,4 @@
-export {
+import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE
