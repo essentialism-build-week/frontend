@@ -23,7 +23,7 @@ function App() {
         <Route path="/onboarding-intro">
           <OnboardingIntro />
         </Route>
-        <Route path="/registration">
+        <Route path="/register">
           <Registration />
         </Route>
         <Route path="/login">
