@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPage from './components/LandingPage';
+import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import OnboardingIntro from "./components/OnboardingIntro";
 import Registration from "./components/Registration";
@@ -9,6 +9,7 @@ import Top3Intro from "./components/Top3Intro";
 import SelectTop3Values from "./components/SelectTop3Values";
 import ValuesExplanation from "./components/ValuesExplanation";
 import ProjectsIntro from "./components/ProjectsIntro";
+import ProjectsList from "./components/ProjectsList";
 import OnboardingComplete from "./components/OnboardingComplete";
 import Home from "./components/HomeScreen";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -45,12 +46,18 @@ function App() {
         <Route path="/projects-intro">
           <ProjectsIntro />
         </Route>
-        <Route path="/">
-          <LandingPage />
-        </Route>
+        <Route path="/projects-list">
+        <ProjectsList />
+      </Route>
         <Route path="/onboarding-complete">
           <OnboardingComplete />
         </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
+        <Route path="/home">
+        <Home />
+      </Route>
       </Switch>
     </Router>
   );

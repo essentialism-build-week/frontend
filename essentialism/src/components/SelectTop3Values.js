@@ -14,7 +14,7 @@ export default function SelectTop3Values() {
       <p>Value 3</p>
       <p>Value 4</p>
       <p>Value 5</p>
-      <Link to="/projects-intro">
+      <Link to="/values-explanation">
         <input type="submit" value="I'm done!" />
       </Link>
     </>

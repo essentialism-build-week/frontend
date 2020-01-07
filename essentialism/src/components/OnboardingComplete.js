@@ -6,14 +6,16 @@ import { Link } from "react-router-dom";
 // In the case of the stretch goal, the button will bring the user to another page that will prompt the user to choose a notification frequency from a dropdown menu.
 
 export default function OnboardingComplete() {
-    return (
-      <section className="intro">
-        <p>Congratulations!</p>
-        <p>You have taken the first steps toward building a life that brings you purpose and fulfillment.</p>
-        <Link to="/">
-          <input type="submit" value="Sounds great!" />
-        </Link>
-      </section>
-    );
-  }
-  
+  return (
+    <section className="intro">
+      <p>Congratulations!</p>
+      <p>
+        You have taken the first steps toward enriching your life with
+        intention, focus, and greater fulfillment.
+      </p>
+      <Link to="/">
+        <input type="submit" value="Sounds great!" />
+      </Link>
+    </section>
+  );
+}
