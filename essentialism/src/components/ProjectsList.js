@@ -41,7 +41,7 @@ const ProjectList = () => {
 
 const mapStateToProps = state => {
   return {
-    values: state.values
+    projectList: state.projectList
   };
   };
   
