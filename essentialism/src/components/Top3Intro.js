@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// This component instructs the user to think about how she will narrow down her values to the 3 most important.
+
 export default function Top3Intro() {
     return (
       <section className="intro">
