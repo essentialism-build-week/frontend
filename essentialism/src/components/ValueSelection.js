@@ -1,4 +1,4 @@
-import React from "react";
+import React, { View } from "react";
 import { Link } from "react-router-dom";
 
 // This component allows the user to select her values in life.
@@ -6,12 +6,37 @@ import { Link } from "react-router-dom";
 // The user can swipe left to reject a value or swipe right to add it to their list.
 // Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
 
+// the values array contains the images to test a swipe cards stack
+const values = [
+  { id: "1", url: "../img/art.jpg" },
+  { id: "2", url: "../img/athletics.jpg" },
+  { id: "3", url: "../img/creativity.jpg" }
+];
+
 export default function ValueSelection() {
   return (
     <section>
       <h2>Choose your values</h2>
       <div>
-        <p>This is where the values will be</p>
+        <p>Athletics</p>
+        <p>Art</p>
+        <p>Career</p>
+        <p>Community</p>
+        <p>Creativity</p>
+        <p>Education</p>
+        <p>Generosity</p>
+        <p>Gratitude</p>
+        <p>Family</p>
+        <p>Health</p>
+        <p>Impact</p>
+        <p>Independence</p>
+        <p>Kindness</p>
+        <p>Leadership</p>
+        <p>Living in the Moment</p>
+        <p>Music</p>
+        <p>Nature</p>
+        <p>Spirituality</p>
+        <p>Wealth</p>
       </div>
       <p>Once you have picked at least 3, you can proceed</p>
       <Link to="/top3-intro">
