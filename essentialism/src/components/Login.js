@@ -8,7 +8,6 @@ const Login = (props) => {
         mapStateToProps(
             { ...props.credentials, [event.target.name]: event.target.value }
         )
-    
     }
 
   return (
