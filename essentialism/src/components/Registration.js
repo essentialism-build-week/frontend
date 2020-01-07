@@ -25,7 +25,7 @@ const Registration = () => {
       event.preventDefault();
       setIsFetching(true);
       axiosWithAuth()
-          .post('/auth/register', credentials)
+          .post('/register', credentials)
           .then(response => {
               console.log(response.data);
               response.data.saved === true ? history.push('/login') : alert("This account has already been created.");
