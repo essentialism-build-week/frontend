@@ -1,15 +1,45 @@
-import React from "react";
-import { login } from '../actions/action';
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { useHistory } from 'react-router-dom';
+import Home from './HomeScreen';
 
-const Login = (props) => {
+const Login = () => {
+  // Set initial state for credentials and fetch check
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  })
+  const [isFetching, setIsFetching] = useState(false);
 
-    const handleChanges = event => {
-        mapStateToProps(
-            { ...props.credentials, [event.target.name]: event.target.value }
-        )
-    
-    }
+  const [error, setError] = useState("")
+
+  // Sets credentials to it's state
+  const handleChanges = event => {
+    setCredentials(
+      { ...credentials, [event.target.name]: event.target.value }
+    );
+    console.log('NEW credentials from Login', credentials);
+  }
+
+  // Post credentials to local storage token
+  let history = useHistory();
+  const login = event => {
+    event.preventDefault();
+    setIsFetching(true);
+
+    axiosWithAuth()
+      .post('/login', credentials)
+      .then(response => {
+        console.log(response.data);
+        if (response.data.token) {
+            localStorage.setItem("token", response.data.token);
+            history.push('/home');
+        } else {
+            setError(response.data.msg)
+        }
+      })
+      .catch(error => console.log(error));
+  }
 
   return (
     <div>
@@ -18,32 +48,25 @@ const Login = (props) => {
           type="text"
           name="username"
           placeholder="User name"
-          value={props.credentials.username}
+          value={credentials.username}
           onChange={handleChanges}
           required
         />
         <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={props.credentials.password}
-          onChange={handleChanges}
-          required
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={credentials.password}
+            onChange={handleChanges}
+            required
         />
         <button>Log in</button>
-        {props.isFetching && "Logging In..."}
+        {isFetching && 'Logging In...'}
       </form>
-      <p>{props.error ? props.error : null}</p>
+      <p>{error ? error : null}</p>
+
     </div>
-  );
-};
+  )
+}
 
-const mapStateToProps = state => {
-  return {
-    credentials: state.credentials,
-    isFetching: state.isFetching,
-    error: state.error
-  };
-};
-
-export default connect(mapStateToProps, { login })(Login);
+export default Login;
