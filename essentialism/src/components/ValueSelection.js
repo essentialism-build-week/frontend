@@ -1,5 +1,6 @@
 import React, { View } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // This component allows the user to select her values in life.
 // These values are meant to be ideas or concept the user can resonate with upon reading them, i.e. community, music, career, health, family, art, travel, etc...
@@ -13,7 +14,7 @@ const values = [
   { id: "3", url: "../img/creativity.jpg" }
 ];
 
-export default function ValueSelection() {
+function ValueSelection() {
   return (
     <section>
       <h2>Choose your values</h2>
@@ -45,3 +46,11 @@ export default function ValueSelection() {
     </section>
   );
 }
+ 
+const mapStateToProps = state => {
+return {
+  values: state.values
+};
+};
+
+export default connect(mapStateToProps, {  }(ValueSelection))
