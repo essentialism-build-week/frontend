@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // This component initially presents the user with:
 // 1) a button under the header to add a new project
@@ -12,7 +13,7 @@ import { Link } from "react-router-dom";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-export default function ValueSelection() {
+const ProjectList = () => {
   return (
     <section>
       <Link to="/add-new-project">
@@ -37,3 +38,12 @@ export default function ValueSelection() {
     </section>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    projectList: state.projectList,
+    isFetching: state.isFetching
+  };
+  };
+  
+  export default connect(mapStateToProps, {  }(ProjectList))

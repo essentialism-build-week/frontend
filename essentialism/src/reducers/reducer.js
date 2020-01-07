@@ -1,39 +1,113 @@
-import {
-    LOGIN_START,
-    LOGIN_SUCCESS,
-    LOGIN_FAILURE
-} from '../actions/action';
 
+// VALUE SELECTION
 
-const initialStateLogin = {
-    credentials: '',
-    isFetching: false,
-    error: ''
+const initialValueSelection = {
+    values: []
 };
 
-const reducer = (state = initialStateLogin, action) => {
+const reducer = (state = initialValueSelection, action) => {
     switch (action.type) {
-        case LOGIN_START:
+        case GET_VALUES:
         return {
             ...state,
-            isFetching: true
+            values: action.payload
         };
-        case LOGIN_SUCCESS:
-            return {
-                ...state,
-                setCredentials: action.payload,
-                isFetching: false,
-                error: '',
-            };
-            case LOGIN_FAILURE:
-                return {
-                    ...state,
-                    isFetching: false,
-                    error: action.payload
-                };
-                default: 
-                return state;
+        default: 
+        return state;
+    }
+   
+}
+
+// TOP THREE SELECTION
+
+const initialTopThreeValues = {
+    topThreeValues: []
+};
+
+const reducer = (state = initialTopThreeValues, action) => {
+    switch (action.type) {
+        case GET_TOPTHREE: 
+        return {
+            ...state,
+            topThreeValues: action.payload
+        };
+        default:
+            return state;
     }
 }
 
-export default reducer;
+// SELECT TOP THREE
+
+const initialSelectTopTHree = {
+    topThreeSelected: []
+};
+
+const reducer = (state = initialSelectTopTHree, action) => {
+    switch (action.type) {
+        case SELECTED_VALUES:
+            return {
+                ...state,
+                topThreeSelected: action.payload
+            };
+            default: 
+            return state;
+    }
+}
+
+// VALUE EXPLANATION
+
+const initialValueExplanation = {
+    explanation: ''
+};
+
+const reducer = (state = initialValueExplanation, action) {
+    switch (action.type) {
+        case VALUE_EXPLANATION: 
+        return {
+            ...state,
+            explanation: action.payload
+        }
+        default: 
+        return state;
+    }
+}
+
+// PROJECT LIST
+
+const initialProjectList = {
+    projectList: [],
+    isFetching: false
+};
+
+const reducer = (state = initialProjectList, action) {
+    switch (action.type) {
+        case PROJECT_LIST:
+            return {
+                ...state,
+                projectList: action.payload
+            }
+            default: 
+            return state;
+    }
+}
+
+// PROJECT COMPARE
+
+const initialProjectCompare = {
+    projects: [],
+    topThreeList: []
+};
+
+
+const reducer = (state = initialProjectCompare, action) {
+    switch (action.type) {
+        case PROJECT_COMPARE:
+            return {
+                ...state,
+                projects: action.payload,
+                topThreeList: action.payload
+            }
+            default: 
+            return state;
+    }
+}

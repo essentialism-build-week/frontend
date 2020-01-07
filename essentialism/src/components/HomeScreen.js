@@ -1,5 +1,5 @@
 import React from "react";
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+
 
 // This component represents the home screen a returning user will see after logging in. 
 // The app will retrieve the user's top 3 values and display them front and center. 

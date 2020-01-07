@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // This component briefs the user on the task of relating each of her current projects with her chosen values
 
-export default function ProjectValueCompareIntro() {
+const ProjectValueCompareIntro = () => {
   return (
     <section className="intro">
       <p>Great, you've added some projects!</p>
@@ -25,3 +25,12 @@ export default function ProjectValueCompareIntro() {
     </section>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    projects: state.projects,
+    topThreeList: state.topThreeList
+  };
+  };
+  
+  export default connect(mapStateToProps, {  }(ProjectValueCompareIntro)) 
