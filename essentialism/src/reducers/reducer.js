@@ -1,5 +1,4 @@
 export {
-
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE
@@ -10,9 +9,9 @@ const initialStateLogin = {
     credentials: '',
     isFetching: false,
     error: ''
-}
+};
 
-const reducer = (state, initialStateLogin, action) => {
+const reducer = (state = initialStateLogin, action) => {
     switch (action.type) {
         case LOGIN_START:
         return {
@@ -22,7 +21,7 @@ const reducer = (state, initialStateLogin, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                credentials: action.payload,
+                setCredentials: action.payload,
                 isFetching: false,
                 error: '',
             };
