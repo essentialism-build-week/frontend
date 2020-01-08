@@ -2,7 +2,7 @@ export const initialValueExplanation = {
     explanation: ''
 };
 
-export const reducer = (state = initialValueExplanation, action) {
+export const reducer = (state = initialValueExplanation, action) => {
     switch (action.type) {
         case VALUE_EXPLANATION: 
         return {

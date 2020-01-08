@@ -4,7 +4,7 @@ export const initialProjectCompare = {
 };
 
 
-export const reducer = (state = initialProjectCompare, action) {
+export const reducer = (state = initialProjectCompare, action) => {
     switch (action.type) {
         case PROJECT_COMPARE:
             return {
