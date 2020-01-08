@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 // This component briefs the user on the task of relating each of her current projects with her chosen values
 

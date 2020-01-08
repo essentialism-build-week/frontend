@@ -10,18 +10,6 @@ import { connect } from "react-redux";
 // Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
 
 function ValueSelection() {
-  // const [values, setValues] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get("https://todai-backend.herokuapp.com/api/auth/")
-  //   .then(response => {
-  //     console.log(`axios.get.then: `, response);
-  //     setValues(response)
-  //   })
-  //   .catch(error => {
-  //     console.log(`You failed! Here's why: `, error)
-  //   });
-  // }, []);
 
   const values = [
     { id: "1", name: "art" },
