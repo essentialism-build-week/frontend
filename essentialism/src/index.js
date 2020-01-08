@@ -8,13 +8,22 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-import reducer from './reducers/reducer';
-
+import valueSelectionReducer from "./reducers/valueSelectionReducer";
+import topThreeSelectionReducer from "./reducers/topThreeSelectionReducer";
+import selectTopThreeReducer from "./reducers/selectTopThreeReducer";
+import valueExplanationReducer from "./reducers/valueExplanationReducer";
+import projectListReducer from "./reducers/projectListReducer";
+import projectCompareReducer from "./reducers/projectCompareReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
+  valueSelectionReducer,
+  topThreeSelectionReducer,
+  selectTopThreeReducer,
+  valueExplanationReducer,
+  projectListReducer,
+  projectCompareReducer,
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
