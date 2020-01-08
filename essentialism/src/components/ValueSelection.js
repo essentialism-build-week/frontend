@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-import { getValues, setSelectedValues } from "../actions/valueSelectionAction";
+import { getValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
 
 // This component allows the user to select her values in life.
@@ -13,10 +13,7 @@ import { connect } from "react-redux";
 const ValueSelection = (props) => {
   useEffect(() => {
     props.getValues();
-    props.setSelectedValues();
   }, []);
-
-
 
   return (
     <Form>
@@ -33,16 +30,9 @@ const ValueSelection = (props) => {
                 key={item.id}
                 id={item.id}
                
-                
-               
               />
             );
           })}
-
-          {props.isFetching && (
-            <div><p>Loading...</p></div>
-          )}
-          
         </div>
       </FormGroup>
       <p>Once you have picked at least 3, you can proceed</p>
@@ -53,19 +43,13 @@ const ValueSelection = (props) => {
   );
 };
 
-// <Input type="select" name="selectMulti" id="exSelectMulti" multiple>
-// {values.map(value => {
-//   console.log(value);
-//   return <option>{value.name}</option>;
-// })}
-// </Input>
-
 const mapStateToProps = state => {
   return {
     values: state.values,
     isFetching: state.isFetching,
-    selected: state.selected
+    key: state.key
+   
   };
 };
 
-export default connect(mapStateToProps, {getValues, setSelectedValues})(ValueSelection); 
+export default connect(mapStateToProps, {getValues})(ValueSelection); 
