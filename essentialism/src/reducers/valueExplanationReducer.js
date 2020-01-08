@@ -1,8 +1,8 @@
-const initialValueExplanation = {
+export const initialValueExplanation = {
     explanation: ''
 };
 
-const reducer = (state = initialValueExplanation, action) {
+export const reducer = (state = initialValueExplanation, action) {
     switch (action.type) {
         case VALUE_EXPLANATION: 
         return {
@@ -13,3 +13,5 @@ const reducer = (state = initialValueExplanation, action) {
         return state;
     }
 }
+
+export default reducer;

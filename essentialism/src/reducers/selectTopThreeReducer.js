@@ -12,4 +12,6 @@ export const reducer = (state = initialSelectTopTHree, action) => {
             default: 
             return state;
     }
-}
+};
+
+export default reducer;

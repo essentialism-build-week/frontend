@@ -14,3 +14,5 @@ export const reducer = (state = initialValueSelection, action) => {
     }
    
 }
+
+export default reducer;

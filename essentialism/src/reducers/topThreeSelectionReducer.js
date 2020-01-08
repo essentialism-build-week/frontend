@@ -13,3 +13,5 @@ export const reducer = (state = initialTopThreeValues, action) => {
             return state;
     }
 }
+
+export default reducer;

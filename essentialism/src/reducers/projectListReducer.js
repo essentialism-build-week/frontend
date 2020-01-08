@@ -14,3 +14,5 @@ export const reducer = (state = initialProjectList, action) {
             return state;
     }
 }
+
+export default reducer;

@@ -16,3 +16,5 @@ export const reducer = (state = initialProjectCompare, action) {
             return state;
     }
 }
+
+export default reducer;
