@@ -36,7 +36,6 @@ const Home = props => {
   return (
     <section className="home-screen">
       <div className="home-values">
-        <h1></h1>
         <h2>Your Top 3 Values</h2>
         <ListGroup>
           {values.map(value => {
@@ -45,13 +44,14 @@ const Home = props => {
           })}
         </ListGroup>
       </div>
-      <h2>Your Current Projects</h2>
       <div className="home-projects">
         <h2>Current Projects</h2>
-        {projects.map(project => {
-          console.log(project);
-          return <ListGroupItem>{project.name}</ListGroupItem>;
-        })}
+        <ListGroup>
+          {projects.map(project => {
+            console.log(project);
+            return <ListGroupItem>{project.name}</ListGroupItem>;
+          })}
+        </ListGroup>
       </div>
     </section>
   );

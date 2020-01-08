@@ -1,6 +1,6 @@
 import React from "react";
-import PrivateRoute from './components/PrivateRoute';
-import LandingPage from './components/LandingPage';
+import PrivateRoute from "./components/PrivateRoute";
+import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import OnboardingIntro from "./components/OnboardingIntro";
 import Registration from "./components/Registration";
@@ -11,13 +11,13 @@ import SelectTop3Values from "./components/SelectTop3Values";
 import ValuesExplanation from "./components/ValuesExplanation";
 import ProjectsIntro from "./components/ProjectsIntro";
 import ProjectsList from "./components/ProjectsList";
+import AddNewProject from "./components/AddNewProject";
 import ProjectValueCompareIntro from "./components/ProjectValueCompareIntro";
 import AssignValuesToProjects from "./components/AssignValuesToProjects";
 import OnboardingComplete from "./components/OnboardingComplete";
 import Home from "./components/HomeScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Header />
       </main>
       <Switch>
-      <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute path="/home" component={Home} />
         <Route path="/onboarding-intro">
           <OnboardingIntro />
         </Route>
@@ -53,6 +53,9 @@ function App() {
         </Route>
         <Route path="/projects-list">
           <ProjectsList />
+        </Route>
+        <Route path="/add-new-project">
+          <AddNewProject />
         </Route>
         <Route path="/project-value-compare-intro">
           <ProjectValueCompareIntro />
