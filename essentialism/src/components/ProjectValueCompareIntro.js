@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 // This component briefs the user on the task of relating each of her current projects with her chosen values
 
@@ -34,4 +34,5 @@ const mapStateToProps = state => {
   };
   };
   
-  export default connect(mapStateToProps, {  }(ProjectValueCompareIntro)) 
+  // export default connect(mapStateToProps, {  }(ProjectValueCompareIntro)) 
+  export default ProjectValueCompareIntro;

@@ -13,7 +13,20 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-function ProjectsList() {
+
+const ProjectsList = () => {
+//   const [projects, setProjects] = useState([]);
+
+//   useEffect(() => {
+//     axios.get("https://todai-backend.herokuapp.com/api/auth/")
+//     .then(response => {
+//       console.log(`axios.get.then: `, response);
+//       setProjects(response)
+//     })
+//     .catch(error => {
+//       console.log(`You failed! Here's why: `, error)
+//     });
+//   }, []);
 
   return (
     <section>
@@ -47,4 +60,5 @@ const mapStateToProps = state => {
   };
   };
   
-  export default connect(mapStateToProps, {  }(ProjectsList))
+  // export default connect(mapStateToProps, {  }(ProjectsList))
+  export default ProjectsList;

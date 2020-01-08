@@ -23,4 +23,5 @@ const mapStateToProps = state => {
   };
   };
   
-  export default connect(mapStateToProps, {  }(ValuesExplanation)) 
+  // export default connect(mapStateToProps, {  }(ValuesExplanation)) 
+  export default ValuesExplanation;
