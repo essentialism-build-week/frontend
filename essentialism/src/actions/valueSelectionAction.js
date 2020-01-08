@@ -11,10 +11,10 @@ export const getValues = () => (dispatch) => {
     axiosWithAuth()
     .get('/values')
     .then(response => {
-        console.log( `VALUE SELECTION ACTION`, response)
-        dispatch({ type: GET_VALUES_SUCCESS, payload: response })
+        // console.log( `VALUE SELECTION ACTION`, response)
+        dispatch({ type: GET_VALUES_SUCCESS, payload: response.data })
     })
-    .catch(error => {
-        dispatch({ type: GET_VALUES_FAILURE, payload: error.response})
-    })
+    .catch(error => 
+        dispatch({type: GET_VALUES_FAILURE, payload: error.response})
+        )
 }

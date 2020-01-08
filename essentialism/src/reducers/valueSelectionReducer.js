@@ -7,7 +7,7 @@ import {
 export const initialValueSelection = {
   values: [],
   isFetching: false,
-  error: ""
+
 };
 
 export const reducer = (state = initialValueSelection, action) => {
@@ -23,14 +23,13 @@ export const reducer = (state = initialValueSelection, action) => {
         ...state,
         isFetching: false,
         values: action.payload,
-        error: ""
       };
 
     case GET_VALUES_FAILURE:
       return {
         ...state,
         isFetching: false,
-        error: action.payload.error
+      
       };
 
     default:

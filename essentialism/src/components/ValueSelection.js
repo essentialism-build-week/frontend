@@ -9,47 +9,25 @@ import { connect } from "react-redux";
 // The user can swipe left to reject a value or swipe right to add it to their list.
 // Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
 
-const ValueSelection = () => {
+const ValueSelection = (props) => {
   useEffect(() => {
-    getValues();
+    props.getValues();
   }, []);
-
-  // const [values, setValues] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get("https://todai-backend.herokuapp.com/api/auth/")
-  //   .then(response => {
-  //     console.log(`axios.get.then: `, response);
-  //     setValues(response)
-  //   })
-  //   .catch(error => {
-  //     console.log(`You failed! Here's why: `, error)
-  //   });
-  // }, []);
-
-  const values = [
-    { id: "1", name: "art" },
-    { id: "2", name: "athletics" },
-    { id: "3", name: "community" },
-    { id: "4", name: "creativity" },
-    { id: "5", name: "music" },
-    { id: "6", name: "travel" },
-    { id: "7", name: "wealth" }
-  ];
-  console.log(values);
 
   return (
     <Form>
       <h2>Choose your values</h2>
       <FormGroup>
         <div>
-          {values.map(value => {
-            console.log(value);
+          {props.values.map(item => {
+            console.log(item);
             return (
               <CustomInput
                 type="switch"
                 name="customSwitch"
-                label={value.name}
+                label={item.value}
+                key={item.id}
+                id={item.id}
                
               />
             );
@@ -75,7 +53,8 @@ const mapStateToProps = state => {
   return {
     values: state.values,
     isFetching: state.isFetching,
-    error: state.error
+    key: state.key
+   
   };
 };
 
