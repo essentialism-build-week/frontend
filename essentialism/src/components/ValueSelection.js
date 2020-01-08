@@ -32,6 +32,11 @@ const ValueSelection = (props) => {
               />
             );
           })}
+
+          {props.isFetching && (
+            <div><p>Loading...</p></div>
+          )}
+          
         </div>
       </FormGroup>
       <p>Once you have picked at least 3, you can proceed</p>
