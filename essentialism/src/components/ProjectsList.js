@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
+
 const ProjectsList = () => {
 //   const [projects, setProjects] = useState([]);
 

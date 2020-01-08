@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 // The user can swipe left to reject a value or swipe right to add it to their list.
 // Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
 
+
 const ValueSelection = (props) => {
   useEffect(() => {
     props.getValues();
