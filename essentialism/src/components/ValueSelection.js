@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-import { getValues } from "../actions/valueSelectionAction";
+import { getValues, setSelectedValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
 
 // This component allows the user to select her values in life.
@@ -12,7 +12,10 @@ import { connect } from "react-redux";
 const ValueSelection = (props) => {
   useEffect(() => {
     props.getValues();
+    props.setSelectedValues();
   }, []);
+
+
 
   return (
     <Form>
@@ -28,6 +31,8 @@ const ValueSelection = (props) => {
                 label={item.value}
                 key={item.id}
                 id={item.id}
+               
+                
                
               />
             );
@@ -58,9 +63,8 @@ const mapStateToProps = state => {
   return {
     values: state.values,
     isFetching: state.isFetching,
-    key: state.key
-   
+    selected: state.selected
   };
 };
 
-export default connect(mapStateToProps, {getValues})(ValueSelection); 
+export default connect(mapStateToProps, {getValues, setSelectedValues})(ValueSelection); 
