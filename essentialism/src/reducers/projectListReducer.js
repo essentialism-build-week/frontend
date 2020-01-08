@@ -3,7 +3,7 @@ export const initialProjectList = {
     isFetching: false
 };
 
-export const reducer = (state = initialProjectList, action) {
+export const reducer = (state = initialProjectList, action) => {
     switch (action.type) {
         case PROJECT_LIST:
             return {
