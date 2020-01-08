@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // This component initially presents the user with:
 // 1) a button under the header to add a new project
@@ -50,3 +51,12 @@ export default function ProjectsList() {
     </section>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    projectList: state.projectList,
+    isFetching: state.isFetching
+  };
+  };
+  
+  export default connect(mapStateToProps, {  }(ProjectList))
