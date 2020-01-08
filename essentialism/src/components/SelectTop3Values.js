@@ -29,4 +29,5 @@ const mapStateToProps = state => {
   };
   };
   
-  export default connect(mapStateToProps, {  }(SelectTop3Values)) 
+  // export default connect(mapStateToProps, {  }(SelectTop3Values)) 
+  export default SelectTop3Values;
