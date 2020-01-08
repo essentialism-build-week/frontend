@@ -12,7 +12,20 @@ import { Link } from "react-router-dom";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-export default function ValueSelection() {
+export default function ProjectsList() {
+//   const [projects, setProjects] = useState([]);
+
+//   useEffect(() => {
+//     axios.get("https://todai-backend.herokuapp.com/api/auth/")
+//     .then(response => {
+//       console.log(`axios.get.then: `, response);
+//       setProjects(response)
+//     })
+//     .catch(error => {
+//       console.log(`You failed! Here's why: `, error)
+//     });
+//   }, []);
+
   return (
     <section>
       <Link to="/add-new-project">
