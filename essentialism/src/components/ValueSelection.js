@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { getValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
 
 // This component allows the user to select her values in life.
@@ -9,7 +9,11 @@ import { connect } from "react-redux";
 // The user can swipe left to reject a value or swipe right to add it to their list.
 // Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
 
-function ValueSelection() {
+const ValueSelection = () => {
+  useEffect(() => {
+    getValues();
+  }, []);
+
   // const [values, setValues] = useState([]);
 
   // useEffect(() => {
@@ -46,6 +50,7 @@ function ValueSelection() {
                 type="switch"
                 name="customSwitch"
                 label={value.name}
+               
               />
             );
           })}
@@ -57,7 +62,7 @@ function ValueSelection() {
       </Link>
     </Form>
   );
-}
+};
 
 // <Input type="select" name="selectMulti" id="exSelectMulti" multiple>
 // {values.map(value => {
@@ -65,11 +70,13 @@ function ValueSelection() {
 //   return <option>{value.name}</option>;
 // })}
 // </Input>
- 
+
 const mapStateToProps = state => {
-return {
-  values: state.values
-};
+  return {
+    values: state.values,
+    isFetching: state.isFetching,
+    error: state.error
+  };
 };
 
-export default connect(mapStateToProps, {  }(ValueSelection))
+export default connect(mapStateToProps, {getValues})(ValueSelection); 

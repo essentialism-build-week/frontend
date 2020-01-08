@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-export default function ProjectsList() {
+const ProjectsList = () => {
 //   const [projects, setProjects] = useState([]);
 
 //   useEffect(() => {
@@ -59,4 +59,5 @@ const mapStateToProps = state => {
   };
   };
   
-  export default connect(mapStateToProps, {  }(ProjectList))
+  // export default connect(mapStateToProps, {  }(ProjectsList))
+  export default ProjectsList;

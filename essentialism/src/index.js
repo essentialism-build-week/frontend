@@ -9,21 +9,21 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 import valueSelectionReducer from "./reducers/valueSelectionReducer";
-import topThreeSelectionReducer from "./reducers/topThreeSelectionReducer";
-import selectTopThreeReducer from "./reducers/selectTopThreeReducer";
-import valueExplanationReducer from "./reducers/valueExplanationReducer";
-import projectListReducer from "./reducers/projectListReducer";
-import projectCompareReducer from "./reducers/projectCompareReducer";
+// import topThreeSelectionReducer from "./reducers/topThreeSelectionReducer";
+// import selectTopThreeReducer from "./reducers/selectTopThreeReducer";
+// import valueExplanationReducer from "./reducers/valueExplanationReducer";
+// import projectListReducer from "./reducers/projectListReducer";
+// import projectCompareReducer from "./reducers/projectCompareReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   valueSelectionReducer,
-  topThreeSelectionReducer,
-  selectTopThreeReducer,
-  valueExplanationReducer,
-  projectListReducer,
-  projectCompareReducer,
+  // topThreeSelectionReducer,
+  // selectTopThreeReducer,
+  // valueExplanationReducer,
+  // projectListReducer,
+  // projectCompareReducer,
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
