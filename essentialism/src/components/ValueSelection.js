@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-import { getValues, setAddSelectedValues, setRemoveSelectedValues } from "../actions/valueSelectionAction";
+import {
+  getValues,
+  setAddSelectedValues,
+  setRemoveSelectedValues
+} from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 // This component allows the user to select her values in life.
 // These values are meant to be ideas or concept the user can resonate with upon reading them, i.e. community, music, career, health, family, art, travel, etc...
@@ -15,22 +19,27 @@ const ValueSelection = props => {
     props.getValues();
   }, []);
 
-  console.log(props.values)
+  // const handleOnChange = () => {
+  //   props.setAddSelectedValues();
+  // };
 
-  const handleOnChange = () => {
-    props.setAddSelectedValues();
-  }
-
-   const tempPut = ()  => {
+  const tempPut = () => {
     axiosWithAuth()
-    .put('/values/:id')
-    .then(response => {
-        console.log(response)
-    })
-    .catch(error => 
-        console.log(error)
-        )
-}
+      .put("/values/:id")
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
+  };
+
+  // const handleButton = () => {
+  //   props.values.map(item => {
+  //     console.log(item.value);
+  //     if (item.value == "Art") {
+  //       document.getElementById("proceedInput").removeAttribute("disabled");
+  //     }
+  //   });
+  // };
 
   return (
     <Form>
@@ -60,7 +69,7 @@ const ValueSelection = props => {
       </FormGroup>
       <p>Once you have picked at least 3, you can proceed</p>
       <Link to="/top3-intro">
-        <input type="submit" value="I've chosen my values" />
+        <input id="proceedInput" type="submit" value="I've chosen my values" />
       </Link>
     </Form>
   );
@@ -74,6 +83,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getValues, setAddSelectedValues, setRemoveSelectedValues })(
-  ValueSelection
-);
+export default connect(mapStateToProps, {
+  getValues,
+  setAddSelectedValues,
+  setRemoveSelectedValues
+})(ValueSelection);

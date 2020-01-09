@@ -40,6 +40,7 @@ export const reducer = (state = initialValueSelection, action) => {
 
     const isSelected = state.values.filter(value => value.selected === true)
     isSelected.push(state.selected)
+
     console.log(isSelected)
 
       return {
@@ -50,9 +51,7 @@ export const reducer = (state = initialValueSelection, action) => {
 
     case REMOVE_SELECTED_VALUES:
 
-      const isSelected = state.values.filter(value => value.selected === false)
-      isSelected.slice(state.selected)
-      console.log(isSelected)
+  
 
       return {
         ...state,
