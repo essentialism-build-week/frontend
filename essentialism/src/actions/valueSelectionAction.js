@@ -28,7 +28,7 @@ export const getValues = () => (dispatch) => {
 
 export const setAddSelectedValues = () => (dispatch) => {
     axiosWithAuth()
-    .put('/values/:id')
+    .put('/users/:VALUE_ID/values')
     .then(response => {
         dispatch({ type: ADD_SELECTED_VALUES, payload: response.data.id })
     })
