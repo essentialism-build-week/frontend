@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-function ProjectList() {
+function ProjectsList() {
 
   const projects = [
     { id: 1, name: "Conquer the world" }
@@ -29,12 +29,7 @@ function ProjectList() {
       <h2>Projects</h2>
       <div>
       {/* This code displays the list of projects */}
-        <ListGroup>
-          {projects.map(item => {
-            console.log(item);
-            return <ListGroupItem>{item.name}</ListGroupItem>;
-          })}
-        </ListGroup>
+
       </div>
 
       {/* This button should only be visible if no projects are listed */}
@@ -62,4 +57,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {}(ProjectList));
+// export default connect(mapStateToProps, {}(ProjectsList));
+export default ProjectsList;
