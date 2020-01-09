@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-
-import {
-  getValues,
-  setAddSelectedValues,
-  setRemoveSelectedValues
-} from "../actions/valueSelectionAction";
-import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-=======
 import { getValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { Link } from "react-router-dom";
+import { Form, FormGroup, CustomInput } from "reactstrap";
+
 import styled from "styled-components";
 
 const ListTitle = styled.h2`
@@ -40,16 +33,13 @@ const SubmitButton = styled.button`
     -5px -5px 5px rgba(255, 255, 255, 1);
 `;
 
+const ValueSelection = (props) => {
 
-// This component allows the user to select her values in life.
-// These values are meant to be ideas or concept the user can resonate with upon reading them, i.e. community, music, career, health, family, art, travel, etc...
-// The user can swipe left to reject a value or swipe right to add it to their list.
-// Once the user has selected her values, she can tap the button and be brought to the next screen where she will narrow down their values to their top 3
-
-const ValueSelection = props => {
   useEffect(() => {
     props.getValues();
   }, []);
+
+console.log(props.values)
 
 
   // const handleOnChange = () => {
@@ -58,7 +48,7 @@ const ValueSelection = props => {
 
   const tempPut = () => {
     axiosWithAuth()
-      .put("/values/:id")
+      .put('/api/users/:VALUE_ID/values')
       .then(response => {
         console.log(response);
       })
@@ -74,63 +64,64 @@ const ValueSelection = props => {
   //   });
   // };
 
-  return (
-    <Form>
-      <h2>Choose your values</h2>
-      <FormGroup>
-        <div>
-          {props.values.map(item => {
-            console.log(item);
-            return (
-              <CustomInput
-                type="switch"
-                name="customSwitch"
-                label={item.value}
-                key={item.id}
-                id={item.id}
-                onChange={tempPut}
-              />
-            );
-          })}
 
-          {props.isFetching && (
-            <div>
-              <p>Loading...</p>
-            </div>
-          )}
-        </div>
-      </FormGroup>
-      <p>Once you have picked at least 3, you can proceed</p>
-      <Link to="/top3-intro">
-        <input id="proceedInput" type="submit" value="I've chosen my values" />
-      </Link>
-    </Form>
+  // {props.values.map(item => {
+  //   console.log(item);
+  //   return (
+  //     <CustomInput
+  //       type="switch"
+  //       name="customSwitch"
+  //       label={item.value}
+  //       key={item.id}
+  //       id={item.id}
+  //       onChange={tempPut}
+  //     />
+  //   );
+  // })}
+
+
+  
 
   return (
     <ContainerDiv>
+   
       <Form>
         <ListTitle>Choose your values</ListTitle>
         <FormGroup>
+        <div>
+
+
+  {props.isFetching.values.map(item => {
+    console.log(item);
+    return (
+      <CustomInput
+        type="switch"
+        name="customSwitch"
+        label={item.value}
+        key={item.id}
+        id={item.id}
+        onChange={tempPut}
+        
+      />
+    );
+  })}
+
+       
+   
+
+        {props.isFetching && (
           <div>
-            {props.values.map(item => {
-              console.log(item);
-              return (
-                <CustomInput
-                  type="switch"
-                  name="customSwitch"
-                  label={item.value}
-                  key={item.id}
-                  id={item.id}
-                />
-              );
-            })}
+            <p>Loading...</p>
           </div>
+        )}
+      </div>
         </FormGroup>
         <p>Once you have picked at least 3, you can proceed</p>
         <Link to="/top3-intro">
           <SubmitButton>I've chosen my values</SubmitButton>
         </Link>
       </Form>
+      
     </ContainerDiv>
 
   );
@@ -145,9 +136,5 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, {
-  getValues,
-  setAddSelectedValues,
-  setRemoveSelectedValues
-})(ValueSelection);
+export default connect(mapStateToProps, { getValues })(ValueSelection);
 
