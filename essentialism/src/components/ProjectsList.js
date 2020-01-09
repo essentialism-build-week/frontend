@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ListGroup, ListGroupItem } from "reactstrap";
 import { connect } from "react-redux";
+
+// Actions
+import { getProjectList } from '../actions/projectListAction';
 
 // This component initially presents the user with:
 // 1) a button under the header to add a new project
@@ -13,52 +17,50 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
+function ProjectsList() {
 
-const ProjectsList = () => {
-//   const [projects, setProjects] = useState([]);
-
-//   useEffect(() => {
-//     axios.get("https://todai-backend.herokuapp.com/api/auth/")
-//     .then(response => {
-//       console.log(`axios.get.then: `, response);
-//       setProjects(response)
-//     })
-//     .catch(error => {
-//       console.log(`You failed! Here's why: `, error)
-//     });
-//   }, []);
+  const projects = [
+    { id: 1, name: "Conquer the world" }
+  ]
 
   return (
     <section>
+      {/* This button allows the user to add a new project to her list by linking to the AddNewProject component */}
       <Link to="/add-new-project">
         <input type="submit" value="Add a new project" />
       </Link>
       <h2>Projects</h2>
       <div>
-        <p>Project 1 - Value 2</p>
-        <p>Project 2 - Value 3</p>
-        <p>Project 3 - Value 2</p>
-        <p>Project 4 - Value 1</p>
+      {/* This code displays the list of projects */}
+
       </div>
+
+      {/* This button should only be visible if no projects are listed */}
       <Link to="/home">
         <input type="submit" value="I have no projects yet :(" />
       </Link>
+
+      {/* This button should only be visible if at least one project is listed */}
       <Link to="/project-value-compare-intro">
         <input type="submit" value="I've added all my projects!" />
       </Link>
+
+      {/* This button should only be visible if at least one project is present and at least one value is assigned */}
       <Link to="/onboarding-complete">
         <input type="submit" value="I've assigned all my values" />
       </Link>
     </section>
   );
-}
+};
 
-const mapStateToProps = state => {
-  return {
-    projectList: state.projectList,
-    isFetching: state.isFetching
-  };
-  };
-  
-  // export default connect(mapStateToProps, {  }(ProjectsList))
-  export default ProjectsList;
+
+const mapStateToProps = state => ({
+  projectList: state.projectList,
+  error: state.error,
+  isFetching: state.isFetching
+});
+
+export default connect (
+  mapStateToProps,
+  { getProjectList }
+)(ProjectsList);
