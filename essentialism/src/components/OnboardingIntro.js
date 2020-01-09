@@ -8,6 +8,7 @@ const ContainerDiv = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 80vw;
+  max-width: 370px;
   font-size: 1.2rem;
 `;
 
@@ -40,7 +41,7 @@ export default function OnboardingIntro() {
         It's about making sure you're living a life in line with what you
         consider to be important.
       </p>
-      <p>So, the first step is identifying your values - are you ready?</p>
+      <p>So, the first step is identifying your values. Are you ready?</p>
       <Link to="/value-selection">
         <SubmitButton>I'm ready!</SubmitButton>
       </Link>
