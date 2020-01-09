@@ -6,8 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Added a width of 375px to simulate iPhone X */
-  width: 375px;
   background: #f2f0f0;
 }
 

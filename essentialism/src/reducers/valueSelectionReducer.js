@@ -2,18 +2,14 @@ import {
   GET_VALUES_START,
   GET_VALUES_SUCCESS,
   GET_VALUES_FAILURE,
-  ADD_SELECTED_VALUES_START,
-  ADD_SELECTED_VALUES_SUCCESS,
-  ADD_SELECTED_VALUES_FAILURE,
-  REMOVE_SELECTED_VALUES_START,
-  REMOVE_SELECTED_VALUES_SUCCESS,
-  REMOVE_SELECTED_VALUES_FAILURE
+  ADD_SELECTED_VALUES,
+  REMOVE_SELECTED_VALUES,
 } from "../actions/valueSelectionAction";
 
 export const initialValueSelection = {
   values: [],
   isFetching: false,
-  error: '',
+  error: "",
   selected: []
 };
 
@@ -30,7 +26,7 @@ export const reducer = (state = initialValueSelection, action) => {
         ...state,
         isFetching: false,
         values: action.payload,
-        error: '',
+        error: ""
       };
 
     case GET_VALUES_FAILURE:
@@ -40,47 +36,27 @@ export const reducer = (state = initialValueSelection, action) => {
         error: action.payload.error
       };
 
-      case ADD_SELECTED_VALUES_START:
-        return {
-          ...state,
-          isFetching: true,
-       
-        };
+    case ADD_SELECTED_VALUES:
 
-        case ADD_SELECTED_VALUES_SUCCESS:
-          return {
-            ...state,
-            isFetching: false,
-            error: ''
-          };
+    const isSelected = state.values.filter(value => value.selected === true)
+    isSelected.push(state.selected)
 
-          case ADD_SELECTED_VALUES_FAILURE:
-            return {
-              ...state,
-              isFetching: false,
-              error: action.payload.error
-            }
+    console.log(isSelected)
 
-            case REMOVE_SELECTED_VALUES_START:
-              return {
-                ...state,
-                isFetching: true,
-              };
-      
-              case REMOVE_SELECTED_VALUES_SUCCESS:
-                return {
-                  ...state,
-                  isFetching: false,
-                  selected: action.payload,
-                  error: ''
-                };
-      
-                case REMOVE_SELECTED_VALUES_FAILURE:
-                  return {
-                    ...state,
-                    isFetching: false,
-                    error: action.payload.error
-                  }
+      return {
+        ...state,
+        selected: action.payload
+      }
+
+
+    case REMOVE_SELECTED_VALUES:
+
+  
+
+      return {
+        ...state,
+        selected: action.payload
+      };
 
     default:
       return state;

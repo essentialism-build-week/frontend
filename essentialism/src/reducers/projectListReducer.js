@@ -1,18 +1,40 @@
-export const initialProjectList = {
+import {
+    FETCH_PROJECTLIST_START,
+    FETCH_PROJECTLIST_SUCCESS,
+    FETCH_PROJECTLIST_FAILURE
+} from '../actions/projectListAction';
+
+const initialState = {
     projectList: [],
+    error: '',
     isFetching: false
 };
 
-export const reducer = (state = initialProjectList, action) => {
+function projectListReducer(state=initialState, action) {
+    console.log(state);
     switch (action.type) {
-        case PROJECT_LIST:
+        case FETCH_PROJECTLIST_START:
             return {
                 ...state,
+                error: '',
+                isFetching: true
+            };
+        case FETCH_PROJECTLIST_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                isFetching: false,
                 projectList: action.payload
-            }
-            default: 
+            };
+        case FETCH_PROJECTLIST_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isFetching: false
+            };
+        default: 
             return state;
     }
 }
 
-export default reducer;
+export default projectListReducer;
