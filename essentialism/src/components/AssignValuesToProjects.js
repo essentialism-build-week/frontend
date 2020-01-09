@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+// Actions
+import { getProjectList } from '../actions/projectListAction';
 
 // This component presents the user with a project and prompts her to select which of her top 3 values is most relevant to said project.
 // Once the user selects a value, the value association is stored and the screen renders the next project in her list with the option to select 1 of the top 3 values again.
 // Once all projects have been assigned a value, the next page is rendered (the Review component)
 
-export default function AssignValues() {
+function AssignValuesToProjects(props) {
   return (
     <section>
       <h3>Project 1</h3>
@@ -23,4 +27,15 @@ export default function AssignValues() {
     </Link>
     </section>
   );
-}
+};
+
+const mapStateToProps = state => ({
+  projectList: state.projectList,
+  error: state.error,
+  isFetching: state.isFetching
+});
+
+export default connect (
+  mapStateToProps,
+  { getProjectList }
+)(AssignValuesToProjects);

@@ -17,7 +17,8 @@ import { getProjectList } from '../actions/projectListAction';
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-function ProjectsList() {
+function ProjectsList(props) {
+  console.log(props);
 
   const projects = [
     { id: 1, name: "Conquer the world" }
@@ -33,7 +34,7 @@ function ProjectsList() {
       <div>
       {/* This code displays the list of projects */}
         <ListGroup>
-          {projects.map(item => {
+          {props.projectList.map(item => {
             console.log(item);
             return <ListGroupItem>{item.name}</ListGroupItem>;
           })}
