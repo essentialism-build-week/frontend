@@ -7,14 +7,16 @@ import addNewProjectReducer from './addNewProjectReducer';
 // import selectTopThreeReducer from './selectTopThreeReducer';
 // import topThreeSelectionReducer from './topThreeSelectionReducer';
 // import valueExplanationReducer from './valueExplanationReducer';
-import valueSelectionReducer from './valueSelectionReducer';
+import reducer from './valueSelectionReducer';
 
-export default combineReducers ({
+const rootReducer = combineReducers ({
   // projectCompareReducer,
   projectListReducer,
   addNewProjectReducer,
   // selectTopThreeReducer,
   // topThreeSelectionReducer,
   // valueExplanationReducer,
-  valueSelectionReducer
+  reducer
 });
+
+export default rootReducer;
