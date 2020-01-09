@@ -59,6 +59,7 @@ function ProjectsList(props) {
   );
 };
 
+
 const mapStateToProps = state => ({
   projectList: state.projectList,
   error: state.error,
@@ -69,4 +70,3 @@ export default connect (
   mapStateToProps,
   { getProjectList }
 )(ProjectsList);
-// export default ProjectsList;
