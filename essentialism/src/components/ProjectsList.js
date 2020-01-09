@@ -32,13 +32,13 @@ function ProjectsList(props) {
       </Link>
       <h2>Projects</h2>
       <div>
-      {/* This code displays the list of projects */}
-        <ListGroup>
+        {/* This code displays the list of projects */}
+        {/* <ListGroup>
           {props.projectList.map(item => {
             console.log(item);
             return <ListGroupItem>{item.name}</ListGroupItem>;
           })}
-        </ListGroup>
+        </ListGroup> */}
       </div>
 
       {/* This button should only be visible if no projects are listed */}
@@ -66,7 +66,7 @@ const mapStateToProps = state => ({
   isFetching: state.isFetching
 });
 
-export default connect (
+export default connect(
   mapStateToProps,
   { getProjectList }
 )(ProjectsList);
