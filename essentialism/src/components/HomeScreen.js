@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
+import axios from "axios";
+import styled from "styled-components";
+
+const ListTitle = styled.h2`
+  text-align: center;
+`
+
+const ListItem = styled.li`
+  font-size: 1.5rem;
+  list-style: none;
+  margin: 10px 20px;
+`
 
 // This component represents the home screen a returning user will see after logging in.
 // The app will retrieve the user's top 3 values and display them front and center.
@@ -10,10 +22,10 @@ const Home = props => {
   // const [values, setValues] = useState([]);
 
   // useEffect(() => {
-  //   axios.get("https://todai-backend.herokuapp.com/api/auth/")
+  //   axios.get("https://todai-backend.herokuapp.com/api/users/values/")
   //   .then(response => {
-  //     console.log(`axios.get.then: `, response);
-  //     setValues(response)
+  //     console.log(`axios.get.then: `, response.data);
+  //     setValues(response.data)
   //   })
   //   .catch(error => {
   //     console.log(`You failed! Here's why: `, error)
@@ -36,22 +48,22 @@ const Home = props => {
   return (
     <section className="home-screen">
       <div className="home-values">
-        <h2>Your Top 3 Values</h2>
-        <ListGroup>
+        <ListTitle>Your Top 3 Values</ListTitle>
+        <div>
           {values.map(value => {
             console.log(value);
-            return <ListGroupItem>{value.name}</ListGroupItem>;
+            return <ListItem>{value.name}</ListItem>;
           })}
-        </ListGroup>
+        </div>
       </div>
       <div className="home-projects">
-        <h2>Current Projects</h2>
-        <ListGroup>
+        <ListTitle>Current Projects</ListTitle>
+        <div>
           {projects.map(project => {
             console.log(project);
-            return <ListGroupItem>{project.name}</ListGroupItem>;
+            return <ListItem>{project.name}</ListItem>;
           })}
-        </ListGroup>
+        </div>
       </div>
     </section>
   );

@@ -32,12 +32,7 @@ function ProjectsList() {
       <h2>Projects</h2>
       <div>
       {/* This code displays the list of projects */}
-        <ListGroup>
-          {projects.map(item => {
-            console.log(item);
-            return <ListGroupItem>{item.name}</ListGroupItem>;
-          })}
-        </ListGroup>
+
       </div>
 
       {/* This button should only be visible if no projects are listed */}
@@ -58,6 +53,7 @@ function ProjectsList() {
   );
 };
 
+
 const mapStateToProps = state => ({
   projectList: state.projectList,
   error: state.error,
@@ -68,4 +64,3 @@ export default connect (
   mapStateToProps,
   { getProjectList }
 )(ProjectsList);
-// export default ProjectsList;
