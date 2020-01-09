@@ -32,7 +32,7 @@ function projectListReducer(state=initialState, action) {
                 error: action.payload,
                 isFetching: false
             };
-            default: 
+        default: 
             return state;
     }
 }

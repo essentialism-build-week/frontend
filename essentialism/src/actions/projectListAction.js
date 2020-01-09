@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 // Destructuring fetch command names
 export const FETCH_PROJECTLIST_START = 'FETCH_PROJECTLIST_START';
@@ -7,13 +7,14 @@ export const FETCH_PROJECTLIST_FAILURE = 'FETCH_PROJECTLIST_FAILURE';
 
 export const getProjectList = () => dispatch => {
   dispatch({ type: FETCH_PROJECTLIST_START });
-  axios.get("https://todai-backend.herokuapp.com/api/projects/id")
+  axiosWithAuth()
+    .get('/projects')
     .then(res => {
       console.log(res);
       dispatch({ type: FETCH_PROJECTLIST_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.log(err);
-      dispatch({ type: FETCH_PROJECTLIST_FAILURE, payload: `${err}` });
+      dispatch({ type: FETCH_PROJECTLIST_FAILURE, payload: err.response });
     });
 };
