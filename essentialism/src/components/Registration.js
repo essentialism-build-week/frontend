@@ -66,7 +66,7 @@ const Registration = () => {
           <input
             type="text"
             name="username"
-            placeholder="User name"
+            placeholder="What do we call you?"
             value={credentials.username}
             onChange={handleChanges}
             required
@@ -77,7 +77,7 @@ const Registration = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Electronic mail handle"
             value={credentials.email}
             onChange={handleChanges}
             required
@@ -88,7 +88,7 @@ const Registration = () => {
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Shhhh... don't tell anyone"
             value={credentials.password}
             onChange={handleChanges}
             required
@@ -99,7 +99,7 @@ const Registration = () => {
           <input
             type="number"
             name="phone"
-            placeholder="Phone number"
+            placeholder="What are your digits?"
             value={credentials.phone}
             onChange={handleChanges}
             required
