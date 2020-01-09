@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { connect } from "react-redux";
 
+// Actions
+import { getProjectList } from '../actions/projectListAction';
+
 // This component initially presents the user with:
 // 1) a button under the header to add a new project
 // 2) an empty list of projects in the middle
@@ -14,7 +17,7 @@ import { connect } from "react-redux";
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
-function ProjectList() {
+function ProjectsList() {
 
   const projects = [
     { id: 1, name: "Conquer the world" }
@@ -53,13 +56,16 @@ function ProjectList() {
       </Link>
     </section>
   );
-}
-
-const mapStateToProps = state => {
-  return {
-    projectList: state.projectList,
-    isFetching: state.isFetching
-  };
 };
 
-export default connect(mapStateToProps, {}(ProjectList));
+const mapStateToProps = state => ({
+  projectList: state.projectList,
+  error: state.error,
+  isFetching: state.isFetching
+});
+
+export default connect (
+  mapStateToProps,
+  { getProjectList }
+)(ProjectsList);
+// export default ProjectsList;
