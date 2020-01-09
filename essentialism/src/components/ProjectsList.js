@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { connect } from "react-redux";
 
+// Actions
+import { getProjectList } from '../actions/projectListAction';
+
 // This component initially presents the user with:
 // 1) a button under the header to add a new project
 // 2) an empty list of projects in the middle
@@ -48,14 +51,16 @@ function ProjectsList() {
       </Link>
     </section>
   );
-}
-
-const mapStateToProps = state => {
-  return {
-    projectList: state.projectList,
-    isFetching: state.isFetching
-  };
 };
 
-// export default connect(mapStateToProps, {}(ProjectsList));
-export default ProjectsList;
+
+const mapStateToProps = state => ({
+  projectList: state.projectList,
+  error: state.error,
+  isFetching: state.isFetching
+});
+
+export default connect (
+  mapStateToProps,
+  { getProjectList }
+)(ProjectsList);
