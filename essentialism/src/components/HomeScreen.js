@@ -13,6 +13,16 @@ const ListItem = styled.li`
   margin: 10px 20px;
 `
 
+const ContainerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 370px;
+  font-size: 1.2rem;
+`;
+
 // This component represents the home screen a returning user will see after logging in.
 // The app will retrieve the user's top 3 values and display them front and center.
 // Below the top 3 values, the user's current projects will be displayed.
@@ -32,21 +42,35 @@ const Home = props => {
   //   });
   // }, []);
 
-  const values = [
-    { id: "1", name: "art" },
-    { id: "2", name: "athletics" },
-    { id: "3", name: "community" }
-  ];
-  console.log(values);
+  const [values, setValues] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://todai-backend.herokuapp.com/api/users/values/")
+    .then(response => {
+      console.log(`axios.get.then: `, response.data);
+      setValues(response.data)
+    })
+    .catch(error => {
+      console.log(`You failed! Here's why: `, error)
+    });
+  }, []);
+
+  // const values = [
+  //   { id: "1", name: "art" },
+  //   { id: "2", name: "athletics" },
+  //   { id: "3", name: "community" }
+  // ];
+  // console.log(values);
 
   const projects = [
     { id: "1", name: "project 1" },
     { id: "2", name: "project 2" },
     { id: "3", name: "project 3" }
   ];
+  console.log(projects);
 
   return (
-    <section className="home-screen">
+    <ContainerDiv>
       <div className="home-values">
         <ListTitle>Your Top 3 Values</ListTitle>
         <div>
@@ -65,7 +89,7 @@ const Home = props => {
           })}
         </div>
       </div>
-    </section>
+    </ContainerDiv>
   );
 };
 

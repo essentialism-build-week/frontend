@@ -18,16 +18,16 @@ const ContainerDiv = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 20px;
   color: white;
   width: 150px;
   height: 50px;
   background: #ce98d9;
-  border: none;
+  border: 1px solid #dab1e2;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-    -5px -5px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
 `;
 
 // This component asks the user to narrow down her values to her top 3.
@@ -45,10 +45,10 @@ const SelectTop3Values = () => {
           console.log(item);
           return <ListGroupItem>{item.name}</ListGroupItem>;
         })*/}
-          {/* One the user has selected 3 */}
+          {/* Once the user has selected 3 values the submit button will enable */}
         </ListGroup>
         <Link to="/values-explanation">
-          <SubmitButton>I'm done!</SubmitButton>
+          <SubmitButton>I'M DONE!</SubmitButton>
         </Link>
       </ContainerDiv>
     </React.Fragment>
