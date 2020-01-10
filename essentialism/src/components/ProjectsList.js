@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
 // Actions
 import { getProjectList } from '../actions/projectListAction';
