@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -56,13 +56,20 @@ const SecondaryButton = styled.input`
 // Each project will then be listed with its assigned value.
 // The bottom button will link to the Onboarding Complete component
 
+
+
 function ProjectsList(props) {
   console.log(props);
+
+  useEffect(() => {
+    props.getProjectList();
+    console.log('use effect ran');
+  }, [])
 
   const projects = [
     { id: 1, name: "Conquer the world" }
   ]
-
+  console.log(props.state)
   return (
     <ContainerDiv>
       {/* This button allows the user to add a new project to her list by linking to the AddNewProject component */}
@@ -72,12 +79,12 @@ function ProjectsList(props) {
       <h2>Projects</h2>
       <div>
         {/* This code displays the list of projects */}
-        {/* <ListGroup>
+        <ListGroup>
           {props.projectList.map(item => {
             console.log(item);
             return <ListGroupItem>{item.name}</ListGroupItem>;
           })}
-        </ListGroup> */}
+        </ListGroup>
       </div>
 
       {/* This button should only be visible if no projects are listed */}
@@ -100,9 +107,11 @@ function ProjectsList(props) {
 
 
 const mapStateToProps = state => ({
-  projectList: state.projectList,
-  error: state.error,
-  isFetching: state.isFetching
+  // console.log(state);
+  // return state;
+  projectList: state.projectListReducer.projectList,
+  error: state.projectListReducer.error,
+  isFetching: state.projectListReducer.isFetching
 });
 
 export default connect(

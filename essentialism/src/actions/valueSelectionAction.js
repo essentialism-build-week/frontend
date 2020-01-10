@@ -12,30 +12,101 @@ export const REMOVE_SELECTED_VALUES = 'REMOVE_SELECTED_VALUES';
 // getting values
 
 export const getValues = () => (dispatch) => {
-    dispatch({ type: GET_VALUES_START })
-    axiosWithAuth()
-    .get('/values')
-    .then(response => {
-        // console.log( `VALUE SELECTION ACTION`, response)
-        dispatch({ type: GET_VALUES_SUCCESS, payload: response.data })
-    })
-    .catch(error => 
-        dispatch({type: GET_VALUES_FAILURE, payload: error.response})
-        )
+
+     // displaying user values 
+
+     dispatch({ type: GET_VALUES_START })
+     axiosWithAuth()
+     .get(`values`)
+     .then(response => {
+         console.log( `VALUE SELECTION ACTION`, response)
+         dispatch({ type: GET_VALUES_SUCCESS, payload: response.data })
+     })
+     .catch(error => 
+         dispatch({type: GET_VALUES_FAILURE, payload: error.response})
+         )
 }
 
-// setting selected values into backend
 
-export const setAddSelectedValues = () => (dispatch) => {
+
+
+export const setAddSelectedValues = () => (dispatch) => { 
+
+    const currentUser = localStorage.getItem('ID');
+    console.log(currentUser);
+
+    // go through the users and reference the username to get the ID
+
     axiosWithAuth()
-    .put('/users/:VALUE_ID/values')
+    .get('/users')
     .then(response => {
-        dispatch({ type: ADD_SELECTED_VALUES, payload: response.data.id })
+        // getting the ID
+        const currentUserID = response.data.find(item => {
+            if (item.username == currentUser) {
+                return true
+            }
+        })
+
+        console.log(`CURRENT USER ID`, currentUserID.id)
+
+        axiosWithAuth()
+        .get(`users/${currentUserID.id}/values`)
+        .then(response => {
+            // see if user_ID matches with currentUserID
+
+            
+            const currentUserValues = response.data.find(item => {
+                if (item.user_id == currentUserID.id) {
+                    return true
+                }
+            })
+
+            console.log(`CURRENT USER VALUES`, currentUserValues)
+            console.log(`CURRENT USER SELECTED`, currentUserValues.selected)
+
+            const getObject = response.data.find(item => {
+                console.log('ITEM', item.id)
+                return item.id == 8
+              })
+
+            console.log('OBJECT', getObject.id)
+          
+
+            axiosWithAuth()
+            .put(`users/${getObject.id}/uservalues`)
+            .then(response => {
+
+                console.log('PUT RESPONSE', response.selected)
+                
+            //    const change = response.selected = false
+            //     console.log('user object', change)
+            })
+
+            console.log('CURRENT VALUES X2',currentUserValues)
+
+
+
+            // axiosWithAuth()
+            // .get(`/users/1/values`)
+            // .then(response => {
+
+            //     console.log('EDITING VALUES', response)
+            //     // edit users values
+            //     dispatch({ type: ADD_SELECTED_VALUES, payload: response.data })
+            // })
+            // .catch(error => console.log(error))
+           
+        })
+       
+
     })
-    .catch(error => 
-        console.log(error)
-        )
+
+   
+
+    
+
 }
+
 
 export const setRemoveSelectedValues = () => (dispatch) => {
     axiosWithAuth()

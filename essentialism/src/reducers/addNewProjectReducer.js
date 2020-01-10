@@ -11,7 +11,6 @@ const initialState = {
 };
 
 function addNewProjectReducer(state=initialState, action) {
-  console.log(state);
   switch (action.type) {
     case POST_ADDNEWPROJECT_START:
       return {
@@ -20,11 +19,12 @@ function addNewProjectReducer(state=initialState, action) {
         isFetching: true
       };
     case POST_ADDNEWPROJECT_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         error: '',
         isFetching: false,
-        newProject: action.payload
+        newProject: [...state.newProject, action.payload]
       };
     case POST_ADDNEWPROJECT_FAILURE:
       return {

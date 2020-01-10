@@ -14,11 +14,13 @@ export const initialValueSelection = {
 };
 
 export const valueSelectionReducer = (state = initialValueSelection, action) => {
+
   switch (action.type) {
     case GET_VALUES_START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+       
       };
  
     case GET_VALUES_SUCCESS:
@@ -41,13 +43,14 @@ export const valueSelectionReducer = (state = initialValueSelection, action) => 
     case ADD_SELECTED_VALUES:
 
     const isSelected = state.values.filter(value => value.selected === true)
+
     isSelected.push(state.selected)
 
     console.log(isSelected)
 
       return {
         ...state,
-        selected: action.payload
+        selected: isSelected
       }
 
 

@@ -5,10 +5,12 @@ export const POST_ADDNEWPROJECT_START = 'POST_ADDNEWPROJECT_START';
 export const POST_ADDNEWPROJECT_SUCCESS = 'POST_ADDNEWPROJECT_SUCCESS';
 export const POST_ADDNEWPROJECT_FAILURE = 'POST_ADDNEWPROJECT_FAILURE';
 
-export const postAddNewProject = () => dispatch => {
+export const addNewProjectAction = (project) => dispatch => {
   dispatch({ POST_ADDNEWPROJECT_START });
+  console.log(project);
+
   axiosWithAuth()
-    .post('/projects', {/* newProject */})
+    .post('/projects', project)
     .then(res => {
       console.log(res);
       dispatch({ type: POST_ADDNEWPROJECT_SUCCESS, payload: res.data });

@@ -11,7 +11,6 @@ const initialState = {
 };
 
 function projectListReducer(state=initialState, action) {
-    console.log(state);
     switch (action.type) {
         case FETCH_PROJECTLIST_START:
             return {
@@ -20,6 +19,7 @@ function projectListReducer(state=initialState, action) {
                 isFetching: true
             };
         case FETCH_PROJECTLIST_SUCCESS:
+            console.log(action.payload);
             return {
                 ...state,
                 error: '',
