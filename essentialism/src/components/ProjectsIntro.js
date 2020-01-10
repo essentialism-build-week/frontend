@@ -46,7 +46,7 @@ export default function ProjectsIntro() {
         are you pursuing? How do you spend your free time?
       </p>
       <Link to="/projects-list">
-        <SubmitButton type="submit" value="Let's add some projects!" />
+        <SubmitButton type="submit" value="LET'S ADD SOME PROJECTS!" />
       </Link>
     </ContainerDiv>
   );

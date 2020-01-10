@@ -22,16 +22,16 @@ const ContainerDiv = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 20px;
   color: white;
-  width: 300px;
+  width: 250px;
   height: 50px;
   background: #ce98d9;
-  border: none;
+  border: 1px solid #dab1e2;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-    -5px -5px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
 `;
 
 const ValueSelection = (props) => {
@@ -119,7 +119,7 @@ console.log(props.values)
         </FormGroup>
         <p>Once you have picked at least 3, you can proceed</p>
         <Link to="/top3-intro">
-          <SubmitButton>I've chosen my values</SubmitButton>
+          <SubmitButton>I'VE CHOSEN MY VALUES</SubmitButton>
         </Link>
       </Form>
       
