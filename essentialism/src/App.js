@@ -32,10 +32,10 @@ function App() {
         <Route path="/onboarding-intro">
           <OnboardingIntro />
         </Route>
-        <Route path="/registration">
+        <Route path="/auth/registration">
           <Registration />
         </Route>
-        <Route path="/login">
+        <Route path="/auth/login">
           <Login />
         </Route>
         <Route path="/value-selection">

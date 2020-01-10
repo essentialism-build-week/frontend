@@ -44,11 +44,11 @@ const LandingPage = () => {
   let history = useHistory();
 
   function handleLogin() {
-    history.push("/login");
+    history.push("/auth/login");
   }
 
   function handleRegister() {
-    history.push("/registration");
+    history.push("/auth/registration");
   }
 
   return (
