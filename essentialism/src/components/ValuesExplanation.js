@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 const ContainerForm = styled.form`
   display: flex;
@@ -28,10 +30,33 @@ const SubmitButton = styled.input`
   outline: none;
 `;
 
+const StyledError = styled.p`
+  font-size: 1rem;
+  color: #F24141;
+`
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
+}));
+
 // This component allows the user to reinforce why her top 3 values are the most important to her.
 // This is important because it allows the user to tell a story in her mind and connect the values she deems important, thus strengthening her own narrative, making it easier to decide where she wants to focus her time and energy in life.
 
 const ValuesExplanation = () => {
+  // This code is for the material UI forms
+  const classes = useStyles();
+  const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+  // ======================= //
+
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
     console.log(data);
@@ -48,10 +73,11 @@ const ValuesExplanation = () => {
       </div>
       <input
         name="explanation"
-        ref={register({ required: true, minLength: 200 })}
+        ref={register({ required: true, minLength: 50 })}
         placeholder="These values are important to me because..."
       />
-      {errors.explanation && <p>200 character minimum</p>}
+      {errors.explanation && errors.explanation.type === "required" && <StyledError>This is required</StyledError>}
+      {errors.explanation && errors.explanation.type === "minLength" && <StyledError>50 character minimum</StyledError>}
       <SubmitButton type="submit" value="MY WORDS ARE ADEQUATE" />
     </ContainerForm>
   );

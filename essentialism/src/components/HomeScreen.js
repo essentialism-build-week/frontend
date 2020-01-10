@@ -42,30 +42,21 @@ const Home = props => {
   //   });
   // }, []);
 
-  const [values, setValues] = useState([]);
+  
 
-  useEffect(() => {
-    axios.get("https://todai-backend.herokuapp.com/api/users/values/")
-    .then(response => {
-      console.log(`axios.get.then: `, response.data);
-      setValues(response.data)
-    })
-    .catch(error => {
-      console.log(`You failed! Here's why: `, error)
-    });
-  }, []);
 
-  // const values = [
-  //   { id: "1", name: "art" },
-  //   { id: "2", name: "athletics" },
-  //   { id: "3", name: "community" }
-  // ];
-  // console.log(values);
+
+  const values = [
+    { id: "1", name: "Art" },
+    { id: "2", name: "Athletics" },
+    { id: "3", name: "Community" }
+  ];
+  console.log(values);
 
   const projects = [
-    { id: "1", name: "project 1" },
-    { id: "2", name: "project 2" },
-    { id: "3", name: "project 3" }
+    { id: "1", name: "Save kittens", value: "Community" },
+    { id: "2", name: "Pull a Banksy", value: "Art" },
+    { id: "3", name: "Win the Olympics", value: "Athletics" }
   ];
   console.log(projects);
 
@@ -85,7 +76,7 @@ const Home = props => {
         <div>
           {projects.map(project => {
             console.log(project);
-            return <ListItem>{project.name}</ListItem>;
+            return <ListItem>{project.name} ({project.value})</ListItem>;
           })}
         </div>
       </div>
