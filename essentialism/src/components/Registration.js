@@ -52,9 +52,7 @@ const Registration = () => {
       .post("/auth/register", credentials)
       .then(response => {
         console.log(response.data);
-        response.data.saved === true
-          ? history.push("/login")
-          : alert("This account has already been created.");
+        history.push("/auth/login");
       })
       .catch(error => console.log(error));
   };
