@@ -13,21 +13,23 @@ export const initialValueSelection = {
   selected: []
 };
 
-export const reducer = (state = initialValueSelection, action) => {
+export const valueSelectionReducer = (state = initialValueSelection, action) => {
   switch (action.type) {
     case GET_VALUES_START:
       return {
         ...state,
         isFetching: true
       };
-
+ 
     case GET_VALUES_SUCCESS:
+     
       return {
         ...state,
         isFetching: false,
         values: action.payload,
         error: ""
       };
+
 
     case GET_VALUES_FAILURE:
       return {
@@ -50,9 +52,6 @@ export const reducer = (state = initialValueSelection, action) => {
 
 
     case REMOVE_SELECTED_VALUES:
-
-  
-
       return {
         ...state,
         selected: action.payload
@@ -63,4 +62,4 @@ export const reducer = (state = initialValueSelection, action) => {
   }
 };
 
-export default reducer;
+export default valueSelectionReducer;

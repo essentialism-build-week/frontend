@@ -8,7 +8,7 @@ export const FETCH_PROJECTLIST_FAILURE = 'FETCH_PROJECTLIST_FAILURE';
 export const getProjectList = () => dispatch => {
   dispatch({ type: FETCH_PROJECTLIST_START });
   axiosWithAuth()
-    .get('/projects')
+    .get(`/projects`)
     .then(res => {
       console.log(res);
       dispatch({ type: FETCH_PROJECTLIST_SUCCESS, payload: res.data });
