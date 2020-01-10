@@ -11,7 +11,7 @@ const Header = styled.header`
 const HeaderImg = styled.img`
   margin: 0 auto;
   width: 80vw;
-  max-width: 375px;
+  max-width: 300px;
 `;
 
 export default function HeaderComponent() {

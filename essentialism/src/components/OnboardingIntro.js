@@ -13,16 +13,17 @@ const ContainerDiv = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 20px;
   color: white;
   width: 150px;
   height: 50px;
   background: #ce98d9;
-  border: none;
+  border: 1px solid #dab1e2;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-    -5px -5px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
+  outline: none;
 `;
 
 // This component represents the first screen a new user sees after registering.
@@ -43,7 +44,7 @@ export default function OnboardingIntro() {
       </p>
       <p>So, the first step is identifying your values. Are you ready?</p>
       <Link to="/value-selection">
-        <SubmitButton>I'm ready!</SubmitButton>
+        <SubmitButton>I'M READY!</SubmitButton>
       </Link>
     </ContainerDiv>
   );
