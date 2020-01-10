@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { getValues, setAddSelectedValues } from "../actions/valueSelectionAction";
 
-import { getValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { Link } from "react-router-dom";
 import { Form, FormGroup, CustomInput } from "reactstrap";
 
@@ -36,50 +35,18 @@ const SubmitButton = styled.button`
 
 const ValueSelection = (props) => {
 
+  const getCurrentUser = localStorage.getItem('ID');
+
   useEffect(() => {
     props.getValues();
+    props.setAddSelectedValues();
   }, []);
 
-console.log(props.values)
 
-
-  // const handleOnChange = () => {
-  //   props.setAddSelectedValues();
-  // };
-
-  const tempPut = () => {
-    axiosWithAuth()
-      .put('/api/users/:VALUE_ID/values')
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => console.log(error));
-  };
-
-  // const handleButton = () => {
-  //   props.values.map(item => {
-  //     console.log(item.value);
-  //     if (item.value == "Art") {
-  //       document.getElementById("proceedInput").removeAttribute("disabled");
-  //     }
-  //   });
-  // };
-
-
-  // {props.values.map(item => {
-  //   console.log(item);
-  //   return (
-  //     <CustomInput
-  //       type="switch"
-  //       name="customSwitch"
-  //       label={item.value}
-  //       key={item.id}
-  //       id={item.id}
-  //       onChange={tempPut}
-  //     />
-  //   );
-  // })}
-
+  const handleClick = () => {
+    console.log(props)
+    console.log(props.selectd)
+  }
 
   
 
@@ -87,21 +54,22 @@ console.log(props.values)
     <ContainerDiv>
    
       <Form>
-        <ListTitle>Choose your values</ListTitle>
+        <ListTitle> Hello {getCurrentUser} <br/>
+        please choose your values</ListTitle>
         <FormGroup>
         <div>
 
 
-  {props.isFetching.values.map(item => {
-    console.log(item);
+  {props.values.map(item => {
+    
     return (
       <CustomInput
         type="switch"
         name="customSwitch"
         label={item.value}
         key={item.id}
-        id={item.id}
-        onChange={tempPut}
+        id={item.id}  
+        onClick={handleClick}  
         
       />
     );
@@ -130,11 +98,15 @@ console.log(props.values)
 
 const mapStateToProps = state => {
   return {
-    values: state.values,
-    isFetching: state.isFetching,
-    key: state.key
+    values: state.values.values,
+    isFetching: state.values.isFetching,
+    selected: state.selected,
+    clicked: state.values.clicked
   };
 };
 
 
-export default connect(mapStateToProps, { getValues })(ValueSelection);
+
+export default connect(mapStateToProps, { getValues, setAddSelectedValues })(ValueSelection);
+
+

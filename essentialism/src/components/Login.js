@@ -58,6 +58,7 @@ const Login = () => {
         if (response.data.token) {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("ID", response.data.username);
+          console.log(response.data)
           history.push("/home");
         } else {
           setError(response.data.msg);
