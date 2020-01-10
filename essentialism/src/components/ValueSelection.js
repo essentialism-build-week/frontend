@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import { CustomInput, Form, FormGroup, Input } from "reactstrap";
 
-import {
-  getValues,
-  setAddSelectedValues,
-  setRemoveSelectedValues
-} from "../actions/valueSelectionAction";
-import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-=======
 import { getValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { Link } from "react-router-dom";
 import { Form, FormGroup, CustomInput } from "reactstrap";
 
->>>>>>> d64bc83a89fc4aa4fc96d2be0401ccc011293481
 import styled from "styled-components";
 
 const ListTitle = styled.h2`
@@ -95,34 +83,6 @@ console.log(props.values)
 
   
 
-<<<<<<< HEAD
-  // return (
-  //   <ContainerDiv>
-  //     <Form>
-  //       <ListTitle>Choose your values</ListTitle>
-  //       <FormGroup>
-  //         <div>
-  //           {props.values.map(item => {
-  //             console.log(item);
-  //             return (
-  //               <CustomInput
-  //                 type="switch"
-  //                 name="customSwitch"
-  //                 label={item.value}
-  //                 key={item.id}
-  //                 id={item.id}
-  //               />
-  //             );
-  //           })}
-  //         </div>
-  //       </FormGroup>
-  //       <p>Once you have picked at least 3, you can proceed</p>
-  //       <Link to="/top3-intro">
-  //         <SubmitButton>I've chosen my values</SubmitButton>
-  //       </Link>
-  //     </Form>
-  //   </ContainerDiv>
-=======
   return (
     <ContainerDiv>
    
@@ -164,7 +124,6 @@ console.log(props.values)
       </Form>
       
     </ContainerDiv>
->>>>>>> d64bc83a89fc4aa4fc96d2be0401ccc011293481
 
   );
 };
