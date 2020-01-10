@@ -43,8 +43,7 @@ function AddNewProject() {
   return (
     <ContainerDiv>
       <h2>Add a New Project</h2>
-    </ContainerDiv>
-
+      
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -58,7 +57,7 @@ function AddNewProject() {
       {isFetching && "Adding project..."}
       </form>
       <p>{error ? error : null}</p>
-    </section>
+    </ContainerDiv>
   );
 }
 
