@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "essentialism",
+  "builds": [{ "src": "essentialism/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+  "routes": [
+      { "src": "/(.*)", "dest": "essentialism/$1" }
+  ]
+}

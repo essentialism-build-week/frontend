@@ -15,6 +15,8 @@ import AddNewProject from "./components/AddNewProject";
 import ProjectValueCompareIntro from "./components/ProjectValueCompareIntro";
 import AssignValuesToProjects from "./components/AssignValuesToProjects";
 import OnboardingComplete from "./components/OnboardingComplete";
+import EditValues from "./components/EditValues";
+import EditProjects from "./components/EditProjects";
 import Home from "./components/HomeScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -65,6 +67,12 @@ function App() {
         </Route>
         <Route path="/onboarding-complete">
           <OnboardingComplete />
+        </Route>
+        <Route path="/edit-values">
+          <EditValues />
+        </Route>
+        <Route path="/edit-projects">
+          <EditProjects />
         </Route>
         <Route path="/home">
           <Home />
