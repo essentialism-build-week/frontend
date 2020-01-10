@@ -70,7 +70,7 @@ const EditProjects = () => {
   return (
     <ContainerDiv>
       <div className="home-values">
-        <ListTitle>Your Top 3 Values</ListTitle>
+        <ListTitle>Current Projects</ListTitle>
         <div>
           {projects.map(project => {
             console.log(project);

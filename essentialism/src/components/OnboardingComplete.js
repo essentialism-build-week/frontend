@@ -41,7 +41,7 @@ export default function OnboardingComplete() {
         </p>
       </div>
       <Link to="/home">
-        <SubmitButton type="submit" value="Sounds great!" />
+        <SubmitButton type="submit" value="SOUNDS GREAT!" />
       </Link>
     </ContainerDiv>
   );

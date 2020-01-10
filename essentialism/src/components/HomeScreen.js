@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import axios from "axios";
 import styled from "styled-components";
 
 const ListTitle = styled.h2`
   text-align: center;
-`
+`;
 
 const ListItem = styled.li`
   font-size: 1.5rem;
   list-style: none;
   margin: 10px 20px;
-`
+`;
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -21,6 +22,20 @@ const ContainerDiv = styled.div`
   width: 80vw;
   max-width: 370px;
   font-size: 1.2rem;
+`;
+
+const SecondaryButton = styled.input`
+  font-size: 1rem;
+  margin: 20px;
+  color: white;
+  width: 170px;
+  height: 50px;
+  background: #4e74bf;
+  border: 1px solid #8ba4d5;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
+  outline: none;
 `;
 
 // This component represents the home screen a returning user will see after logging in.
@@ -41,10 +56,6 @@ const Home = props => {
   //     console.log(`You failed! Here's why: `, error)
   //   });
   // }, []);
-
-  
-
-
 
   const values = [
     { id: "1", name: "Art" },
@@ -70,16 +81,26 @@ const Home = props => {
             return <ListItem>{value.name}</ListItem>;
           })}
         </div>
+        <Link to="/edit-values">
+          <SecondaryButton type="submit" value="EDIT VALUES" />
+        </Link>
       </div>
       <div className="home-projects">
         <ListTitle>Current Projects</ListTitle>
         <div>
           {projects.map(project => {
             console.log(project);
-            return <ListItem>{project.name} ({project.value})</ListItem>;
+            return (
+              <ListItem>
+                {project.name} ({project.value})
+              </ListItem>
+            );
           })}
         </div>
       </div>
+      <Link to="/edit-projects">
+        <SecondaryButton type="submit" value="EDIT PROJECTS" />
+      </Link>
     </ContainerDiv>
   );
 };
