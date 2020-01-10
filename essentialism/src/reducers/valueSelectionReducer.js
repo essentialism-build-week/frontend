@@ -14,11 +14,13 @@ export const initialValueSelection = {
 };
 
 export const valueSelectionReducer = (state = initialValueSelection, action) => {
+
   switch (action.type) {
     case GET_VALUES_START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+       
       };
  
     case GET_VALUES_SUCCESS:
@@ -47,7 +49,7 @@ export const valueSelectionReducer = (state = initialValueSelection, action) => 
 
       return {
         ...state,
-        selected: action.payload
+        selected: isSelected
       }
 
 

@@ -12,16 +12,44 @@ export const REMOVE_SELECTED_VALUES = 'REMOVE_SELECTED_VALUES';
 // getting values
 
 export const getValues = () => (dispatch) => {
-    dispatch({ type: GET_VALUES_START })
+
+ const currentUser = localStorage.getItem('ID');
+ console.log(currentUser);
+
+
+ // go through the users and reference the username to get the ID
     axiosWithAuth()
-    .get('/values')
+    .get('/users')
     .then(response => {
-        // console.log( `VALUE SELECTION ACTION`, response)
-        dispatch({ type: GET_VALUES_SUCCESS, payload: response.data })
+        // getting the ID
+       const currentUserID = response.data.find(item =>  {
+            if (item.username == currentUser) {
+                return true
+            } 
+        })
+
+
+
+        console.log(currentUserID.id)
+
+
+        // displaying user values 
+
+        dispatch({ type: GET_VALUES_START })
+        axiosWithAuth()
+        .get(`users/${currentUserID.id}/values`)
+        .then(response => {
+            console.log( `VALUE SELECTION ACTION`, response)
+            dispatch({ type: GET_VALUES_SUCCESS, payload: response.data })
+        })
+        .catch(error => 
+            dispatch({type: GET_VALUES_FAILURE, payload: error.response})
+            )
+
     })
-    .catch(error => 
-        dispatch({type: GET_VALUES_FAILURE, payload: error.response})
-        )
+
+
+   
 }
 
 // setting selected values into backend

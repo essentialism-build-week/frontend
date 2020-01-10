@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import { CustomInput, Form, FormGroup, Input } from "reactstrap";
-
-import {
-  getValues,
-  setAddSelectedValues,
-  setRemoveSelectedValues
-} from "../actions/valueSelectionAction";
+import { getValues, setAddSelectedValues } from "../actions/valueSelectionAction";
 import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-=======
-import { getValues } from "../actions/valueSelectionAction";
-import { connect } from "react-redux";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { Link } from "react-router-dom";
 import { Form, FormGroup, CustomInput } from "reactstrap";
 
->>>>>>> d64bc83a89fc4aa4fc96d2be0401ccc011293481
 import styled from "styled-components";
 
 const ListTitle = styled.h2`
@@ -48,100 +34,35 @@ const SubmitButton = styled.button`
 
 const ValueSelection = (props) => {
 
+  const getCurrentUser = localStorage.getItem('ID');
+
   useEffect(() => {
     props.getValues();
   }, []);
 
-console.log(props.values)
-
-
-  // const handleOnChange = () => {
-  //   props.setAddSelectedValues();
-  // };
-
-  const tempPut = () => {
-    axiosWithAuth()
-      .put('/api/users/:VALUE_ID/values')
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => console.log(error));
-  };
-
-  // const handleButton = () => {
-  //   props.values.map(item => {
-  //     console.log(item.value);
-  //     if (item.value == "Art") {
-  //       document.getElementById("proceedInput").removeAttribute("disabled");
-  //     }
-  //   });
-  // };
-
-
-  // {props.values.map(item => {
-  //   console.log(item);
-  //   return (
-  //     <CustomInput
-  //       type="switch"
-  //       name="customSwitch"
-  //       label={item.value}
-  //       key={item.id}
-  //       id={item.id}
-  //       onChange={tempPut}
-  //     />
-  //   );
-  // })}
 
 
   
 
-<<<<<<< HEAD
-  // return (
-  //   <ContainerDiv>
-  //     <Form>
-  //       <ListTitle>Choose your values</ListTitle>
-  //       <FormGroup>
-  //         <div>
-  //           {props.values.map(item => {
-  //             console.log(item);
-  //             return (
-  //               <CustomInput
-  //                 type="switch"
-  //                 name="customSwitch"
-  //                 label={item.value}
-  //                 key={item.id}
-  //                 id={item.id}
-  //               />
-  //             );
-  //           })}
-  //         </div>
-  //       </FormGroup>
-  //       <p>Once you have picked at least 3, you can proceed</p>
-  //       <Link to="/top3-intro">
-  //         <SubmitButton>I've chosen my values</SubmitButton>
-  //       </Link>
-  //     </Form>
-  //   </ContainerDiv>
-=======
   return (
     <ContainerDiv>
    
       <Form>
-        <ListTitle>Choose your values</ListTitle>
+        <ListTitle> Hello {getCurrentUser} <br/>
+        please choose your values</ListTitle>
         <FormGroup>
         <div>
 
 
-  {props.isFetching.values.map(item => {
-    console.log(item);
+  {props.values.map(item => {
+    
     return (
       <CustomInput
         type="switch"
         name="customSwitch"
         label={item.value}
         key={item.id}
-        id={item.id}
-        onChange={tempPut}
+        id={item.id}    
         
       />
     );
@@ -164,19 +85,19 @@ console.log(props.values)
       </Form>
       
     </ContainerDiv>
->>>>>>> d64bc83a89fc4aa4fc96d2be0401ccc011293481
 
   );
 };
 
 const mapStateToProps = state => {
   return {
-    values: state.values,
-    isFetching: state.isFetching,
-    key: state.key
+    values: state.values.values,
+    isFetching: state.values.isFetching,
+    selected: state.selected,
+    clicked: state.values.clicked
   };
 };
 
 
-export default connect(mapStateToProps, { getValues })(ValueSelection);
+export default connect(mapStateToProps, { getValues, setAddSelectedValues })(ValueSelection);
 
