@@ -49,7 +49,7 @@ const Registration = () => {
     event.preventDefault();
     setIsFetching(true);
     axiosWithAuth()
-      .post("/register", credentials)
+      .post("/auth/register", credentials)
       .then(response => {
         console.log(response.data);
         response.data.saved === true
