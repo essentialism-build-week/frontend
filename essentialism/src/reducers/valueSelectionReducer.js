@@ -43,6 +43,7 @@ export const valueSelectionReducer = (state = initialValueSelection, action) => 
     case ADD_SELECTED_VALUES:
 
     const isSelected = state.values.filter(value => value.selected === true)
+
     isSelected.push(state.selected)
 
     console.log(isSelected)

@@ -38,9 +38,14 @@ const ValueSelection = (props) => {
 
   useEffect(() => {
     props.getValues();
+    props.setAddSelectedValues();
   }, []);
 
 
+  const handleClick = () => {
+    console.log(props)
+    console.log(props.selectd)
+  }
 
   
 
@@ -62,7 +67,8 @@ const ValueSelection = (props) => {
         name="customSwitch"
         label={item.value}
         key={item.id}
-        id={item.id}    
+        id={item.id}  
+        onClick={handleClick}  
         
       />
     );
