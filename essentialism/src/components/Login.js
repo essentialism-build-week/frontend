@@ -16,16 +16,17 @@ const ContainerDiv = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 20px;
   color: white;
-  width: 250px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   background: #ce98d9;
-  border: none;
+  border: 1px solid #dab1e2;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2),
-    -5px -5px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
+  outline: none;
 `;
 
 const Login = () => {
@@ -89,7 +90,7 @@ const Login = () => {
             required
           />
         </InputDiv>
-        <SubmitButton>Log in</SubmitButton>
+        <SubmitButton>LOG IN</SubmitButton>
         {isFetching && "Logging In..."}
       </form>
       <p>{error ? error : null}</p>

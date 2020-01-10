@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { Link } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import axios from "axios";
 import styled from "styled-components";
 
 const ListTitle = styled.h2`
   text-align: center;
-`
+`;
 
 const ListItem = styled.li`
   font-size: 1.5rem;
   list-style: none;
   margin: 10px 20px;
-`
+`;
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -23,12 +23,30 @@ const ContainerDiv = styled.div`
   font-size: 1.2rem;
 `;
 
-// This component represents the home screen a returning user will see after logging in.
-// The app will retrieve the user's top 3 values and display them front and center.
-// Below the top 3 values, the user's current projects will be displayed.
-// At the bottom of the screen, the user will see a row of icons representing other pages of the app the user can visit. For example, the user can click on one icon to edit her top 3 values, another icon to add/edit projects she's involved with, and another icon to edit her settings.
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-const Home = props => {
+const SecondaryButton = styled.button`
+  font-size: 1rem;
+  margin: 20px;
+  color: white;
+  width: 200px;
+  height: 50px;
+  background: #4e74bf;
+  border: 1px solid #8ba4d5;
+  border-radius: 8px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2),
+    -4px -4px 3px rgba(255, 255, 255, 1), inset 1px 1px rgba(255, 255, 255, 0.2);
+`;
+
+// This component links from the home screen.
+// It allows the user to reselect their values, so it links directly to the ValueSelection component.
+// For the sake of functionality, clicking on the "Value Selection" will wipe the user's values and reinitiate the onboarding process at the point of ValueSelection because the user will also need to reassign their new values to their existing projects and/or change their projects.
+// Alternatively, for simplicity, the values assigned to the projects could just be wiped and the user could simply go into the EditProjects component to assign new values to their projects.
+
+const EditValues = () => {
   // const [values, setValues] = useState([]);
 
   // useEffect(() => {
@@ -42,23 +60,12 @@ const Home = props => {
   //   });
   // }, []);
 
-  
-
-
-
   const values = [
     { id: "1", name: "Art" },
     { id: "2", name: "Athletics" },
     { id: "3", name: "Community" }
   ];
   console.log(values);
-
-  const projects = [
-    { id: "1", name: "Save kittens", value: "Community" },
-    { id: "2", name: "Pull a Banksy", value: "Art" },
-    { id: "3", name: "Win the Olympics", value: "Athletics" }
-  ];
-  console.log(projects);
 
   return (
     <ContainerDiv>
@@ -70,18 +77,12 @@ const Home = props => {
             return <ListItem>{value.name}</ListItem>;
           })}
         </div>
-      </div>
-      <div className="home-projects">
-        <ListTitle>Current Projects</ListTitle>
-        <div>
-          {projects.map(project => {
-            console.log(project);
-            return <ListItem>{project.name} ({project.value})</ListItem>;
-          })}
-        </div>
+        <ButtonContainer>
+          <SecondaryButton>CHANGE MY VALUES</SecondaryButton>
+        </ButtonContainer>
       </div>
     </ContainerDiv>
   );
 };
 
-export default Home;
+export default EditValues;

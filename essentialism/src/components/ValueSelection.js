@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getValues, setAddSelectedValues } from "../actions/valueSelectionAction";
+
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Form, FormGroup, CustomInput } from "reactstrap";
@@ -105,5 +106,7 @@ const mapStateToProps = state => {
 };
 
 
+
 export default connect(mapStateToProps, { getValues, setAddSelectedValues })(ValueSelection);
+
 
