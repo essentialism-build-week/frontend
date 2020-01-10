@@ -42,9 +42,11 @@ export const valueSelectionReducer = (state = initialValueSelection, action) => 
 
     case ADD_SELECTED_VALUES:
 
-    const isSelected = state.values.filter(value => value.selected === true)
+    // goes through the STATE VALUES, checks to see if value.selected endpoint is true and pushes that into the selected array. 
 
-    isSelected.push(state.selected)
+    const isSelected = state.values.filter(value => value.selected == true)
+
+    state.selected.push(isSelected)
 
     console.log(isSelected)
 
@@ -55,9 +57,18 @@ export const valueSelectionReducer = (state = initialValueSelection, action) => 
 
 
     case REMOVE_SELECTED_VALUES:
+
+    // goes through the selected array and removes any false then pushes back into it.
+
+    const valueToRemove = false;
+
+    const isNotSelected = selected.filter(value => value !== valueToRemove);
+
+    state.selected.push(isNotSelected);
+
       return {
         ...state,
-        selected: action.payload
+        selected: isNotSelected
       };
 
     default:
